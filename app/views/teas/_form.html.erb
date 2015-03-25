@@ -21,16 +21,18 @@
       </div>
     </div>
 
-    <div class="tr">
-      <div class="td"><%= f.label "Attributes" %></div>
-      <div class="td top_padding">
-        <% @atts.each do |att| %>
-            <%= check_box_tag "#{f.object_name}[att_ids][]", att.id, @tea.atts.include?(att) %>
-             <!--, @tea.teafinder_atts.include?(att)-->
-            <%= att.name %><br/>
-        <% end %>
+    <% if !@atts.blank? %>
+      <div class="tr">
+        <div class="td"><%= f.label "Attributes" %></div>
+        <div class="td top_padding">
+          <% @atts.each do |att| %>
+              <%= check_box_tag "#{f.object_name}[att_ids][]", att.id, @tea.atts.include?(att) %>
+               <!--, @tea.teafinder_atts.include?(att)-->
+              <%= att.name %><br/>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="tr">
       <div class="td"><%= f.label :url %></div>

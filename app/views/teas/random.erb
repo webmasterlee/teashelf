@@ -22,15 +22,17 @@
        </div>
     </div>
 
-    <div class="tr">
-      <div class="td">Attributes</div>
-      <div class="td top_padding">
-         <% @atts.each do |att| %>
-          <label><input type="checkbox" name="att" value="<%= att.id %>">
-          <%= att.name %></label><br/>
-        <% end %>
-       </div>
-    </div>
+    <% if !@atts.blank? %>
+      <div class="tr">
+        <div class="td">Attributes</div>
+        <div class="td top_padding">
+           <% @atts.each do |att| %>
+            <label><input type="checkbox" name="att" value="<%= att.id %>">
+            <%= att.name %></label><br/>
+          <% end %>
+         </div>
+      </div>
+    <% end %>
 
     <div class="tr">
       <div class="td"></div>

@@ -1,0 +1,41 @@
+<% @page_title = "Tea Chooser" %>
+
+<div class="box">
+  <% if @tea.nil? %>
+    <h1>Your search produced no results.</h1>  
+  <% else %>
+    <h1>Today you should drink some <b><%= @tea.name %></b></h1>
+  <% end %>
+</div>
+
+<br/><br/><br/>
+
+<b>Would you like to filter the suggestions?</b><br/><br/>
+
+<form action="<%= teas_random_path %>" method="get">
+
+  <div class="table first_cell_right first_cell_valign">
+    <div class="tr">
+      <div class="td">Type</div>
+      <div class="td">
+         <%= select_tag 'tea_type_id', options_from_collection_for_select(@tea_types, 'id', 'name'), prompt: "Choose..." %>
+       </div>
+    </div>
+
+    <div class="tr">
+      <div class="td">Attributes</div>
+      <div class="td top_padding">
+         <% @atts.each do |att| %>
+          <label><input type="checkbox" name="att" value="<%= att.id %>">
+          <%= att.name %></label><br/>
+        <% end %>
+       </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"></div>
+      <div class="td"><%= submit_tag "Generate Random Tea", :name => nil, :class => "btn" %></div>
+    </div>
+  </div>
+
+</form>

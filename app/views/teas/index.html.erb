@@ -1,0 +1,52 @@
+<% @page_title = "Your teas" %>
+
+<% if @teas.any? %>
+  
+  <div class="site_accordion limit_width">
+    <div class="site_accordion_title">Display Options</div>
+    <div class="site_accordion_desc">
+      <b>Sort By</b><br/>
+      <span><label><input type="radio" name="sort" value="name" class="js_sort"> Name</label></span>
+      <span><label><input type="radio" name="sort" value="tea_type" class="js_sort"> Tea Type</label></span>
+      
+      <br/><br/>
+      <b>Show Only</b><br/>
+      <% @atts.each do |att| %>
+        <label><input type="checkbox" class="js_narrow_by_att" name="att" value="<%= att.id %>">
+        <%= att.name %></label><br/>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="wrapper">
+    <% @teas.each do |tea| %>
+      
+      <div data-sort_name="<%= tea.name.split(' ').first %>" 
+          data-sort_type="<%= tea.tea_type.name.split(' ').first %>" 
+          data-atts="[<%= tea.atts.map { |att| att.id }.join(",") %>]"
+          class="list_item clearfix <% if tea.stock == "Out" %>out_of_stock<% end %>">
+        
+        <div class="edit_icon">
+          <%= link_to image_tag("btn_edit.png"), edit_tea_path(tea) %>
+        </div>
+        
+        <div class="list_item_details">
+          <div class="list_item_name"><%= link_to tea.name, tea, :class => "tea_name_link" %></div>
+          
+          <div class="list_item_atts">
+            <%= tea.tea_type.name %><% if !tea.atts.blank? %>,<% end %>
+            <%= tea.atts.map { |att| att.name }.join(", ") %>
+            <% if tea.stock == "Out" %><br/>Out of Stock<% end %>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  No teas added yet.<br/>
+<% end %>
+
+<br>
+
+<%= link_to 'New Tea', new_tea_path %>

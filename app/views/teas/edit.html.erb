@@ -1,0 +1,6 @@
+<% @page_title = "Edit Tea" %>
+
+<%= render 'form' %>
+
+<%= link_to 'Teas', teas_path %> |
+<%= link_to 'Delete', tea_path, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,21 @@
+<% @page_title = @wishlist.name %>
+
+<div class="table first_cell_bold">
+	<div class="tr">
+		<div class="td">Name</div>
+		<div class="td"><%= @wishlist.name %></div>
+	</div>
+
+	<div class="tr">
+		<div class="td">Url</div>
+		<div class="td"><%= @wishlist.url %></div>
+	</div>
+
+	<div class="tr">
+		<div class="td">Notes</div>
+		<div class="td"><%= simple_format @wishlist.notes %></div>
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
+<%= link_to 'Wishlist', wishlists_path %>

@@ -1,0 +1,55 @@
+<%= form_for @tea do |f| %>
+  <%= format_message(@tea.errors.full_messages) %>
+
+  <div class="table first_cell_right first_cell_valign full_width_table_on_mobile">
+    <div class="tr">
+      <div class="td"><%= f.label :name %></div>
+      <div class="td"><%= f.text_field :name, autofocus: true %></div>
+    </div>
+
+    <div class="tr">
+      <div class="td">Stock</div>
+      <div class="td">
+        <%= select_tag 'tea[stock]', options_for_select([["In","In"],["Out","Out"]], @tea.stock) %>
+      </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"><%= f.label :tea_type_id %></div>
+      <div class="td">
+        <%= select_tag 'tea[tea_type_id]', options_from_collection_for_select(@tea_types, 'id', 'name', @tea.tea_type.nil? ? '' : @tea.tea_type.id), prompt: "Choose..." %>
+      </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"><%= f.label "Attributes" %></div>
+      <div class="td top_padding">
+        <% @atts.each do |att| %>
+            <%= check_box_tag "#{f.object_name}[att_ids][]", att.id, @tea.atts.include?(att) %>
+             <!--, @tea.teafinder_atts.include?(att)-->
+            <%= att.name %><br/>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"><%= f.label :url %></div>
+      <div class="td"><%= f.text_field :url %></div>
+    </div>
+
+    <div class="tr">
+      <div class="td"><%= f.label :notes %></div>
+      <div class="td">
+        <%= f.text_area :notes, :rows => 6 %>
+      </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"></div>
+      <div class="td"><%= f.submit "Submit", :class => "btn" %></div>
+    </div>
+  </div>
+
+<% end %>
+
+<br/>

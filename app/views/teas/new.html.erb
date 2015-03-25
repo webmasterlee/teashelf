@@ -1,0 +1,9 @@
+<% @page_title = "Add New Tea" %>
+
+<% if @tea_types.count > 0 %>
+	<%= render 'form' %>
+<% else %>
+	<%= format_message("Please enter Tea Types before entering a Tea.") %>
+<% end %>
+
+<%= link_to 'Teas', teas_path %>

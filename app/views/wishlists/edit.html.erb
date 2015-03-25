@@ -1,0 +1,6 @@
+<% @page_title = "Edit Wish" %>
+
+<%= render 'form' %>
+
+<%= link_to 'Wishlist', wishlists_path %> |
+<%= link_to 'Delete', wishlist_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>

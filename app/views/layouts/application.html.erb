@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title>Teashelf</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+
+<body <% if session[:night_mode] == "on" %>class="night_mode"<% end %>>
+
+	<!--<div class='sidebar'>
+		<%# render 'layouts/teafinder/header' %>
+	</div>-->
+
+	<div id="master_frame_container">
+			
+		<!--<a href="javascript:;" class='menu_button'><%# image_tag "btn_menu.png" %></a>-->
+
+		<div class="main_menu">
+			<%= render 'layouts/header' %>
+		</div>
+		
+		<% if !request.fullpath.include? "user" %>
+			<%= render 'layouts/nav' %>
+		<% end 	%>
+
+		<div class="page_title">
+			<%= @page_title %>
+		</div>
+
+		<% if notice %>
+			<%= format_message(notice,"success") %>
+		<% end %>
+		
+		<% if alert %>
+		  <%= format_message(alert) %>
+		<% end %>
+
+		<div class="content clearfix">
+			<%= yield %>			
+		</div>
+
+		<%= render 'layouts/footer' %>
+
+	</div>
+
+</body>
+</html>

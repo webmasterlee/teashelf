@@ -1,0 +1,35 @@
+<% @page_title = @tea.name %>
+
+<div class="table first_cell_bold">
+  <div class="tr">
+    <div class="td">Type</div>
+    <div class="td"><%= @tea.tea_type.name %></div>
+  </div>
+
+  <div class="tr">
+    <div class="td">Stock</div>
+    <div class="td"><%= @tea.stock %></div>
+  </div>
+
+  <div class="tr">
+    <div class="td">Attributes</div>
+    <div class="td">
+      <%= @tea.atts.map { |att| att.name }.join(", ") %>
+    </div>
+  </div>
+
+  <div class="tr">
+    <div class="td">Url</div>
+    <div class="td"><%= @tea.url %></div>
+  </div>
+
+  <div class="tr">
+    <div class="td">Notes</div>
+    <div class="td"><%= simple_format @tea.notes %></div>
+  </div>
+</div>
+
+<br/>
+
+<%= link_to 'Edit', edit_tea_path(@tea) %> |
+<%= link_to 'Teas', teas_path %>

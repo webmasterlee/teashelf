@@ -1,0 +1,19 @@
+<% @page_title = "Tea Attributes" %>
+
+<% if @atts.any? %>
+  <table class="table_spacing">
+    <tbody>
+      <% @atts.each do |att| %>
+        <tr>
+          <td><%= link_to image_tag("btn_edit.png"), edit_att_path(att) %></td>
+          <td><%= att.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No tea attributes added yet.<br/>
+<% end %>
+<br>
+
+<%= link_to 'New Attribute', new_att_path %>

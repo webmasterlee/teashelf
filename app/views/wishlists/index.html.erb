@@ -1,0 +1,27 @@
+<% @page_title = "Your Wishlist" %>
+
+<% if @wishlists.any? %>
+  <% @wishlists.each do |wishlist| %>
+
+    <div class="list_item clearfix">
+      <div class="edit_icon">
+        <%= link_to image_tag("btn_edit.png"), edit_wishlist_path(wishlist) %>
+      </div>
+      <div class="list_item_details">
+        <div class="list_item_name"><%= link_to wishlist.name, wishlist %></div>
+        <div class="list_item_atts">
+          <%= wishlist.url %><br/>
+          <%= wishlist.notes %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+<% else %>
+  No wishlist added yet.<br/>
+<% end %>
+
+<br>
+
+<%= link_to 'New Wish', new_wishlist_path %>

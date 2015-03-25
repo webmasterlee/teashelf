@@ -448,6 +448,20 @@ hr {display:none;}
 
 
 /*accordion*/
+.night_mode {
+	.site_accordion_title {background-color: #444;}
+	.site_accordion_desc {
+		background-color: inherit;
+		border-left: 3px solid #444;
+		border-right: 3px solid #444;
+		border-bottom: 3px solid #444;
+	}
+	.site_accordion_title_open {
+		background-color: #444;
+		color: #fff;
+	}
+}	
+
 .site_accordion {
 	margin: 5px 0;
 }

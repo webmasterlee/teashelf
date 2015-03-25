@@ -4,16 +4,18 @@
   
   <div class="site_accordion limit_width">
     <div class="site_accordion_title">Display Options</div>
-    <div class="site_accordion_desc">
+    <div class="site_accordion_desc display_options">
       <b>Sort By</b><br/>
       <span><label><input type="radio" name="sort" value="name" class="js_sort"> Name</label></span>
       <span><label><input type="radio" name="sort" value="tea_type" class="js_sort"> Tea Type</label></span>
       
-      <br/><br/>
-      <b>Show Only</b><br/>
-      <% @atts.each do |att| %>
-        <label><input type="checkbox" class="js_narrow_by_att" name="att" value="<%= att.id %>">
-        <%= att.name %></label><br/>
+      <% if !@atts.blank? %>
+        <br/><br/>
+        <b>Show Only</b><br/>
+        <% @atts.each do |att| %>
+          <span><label><input type="checkbox" class="js_narrow_by_att" name="att" value="<%= att.id %>">
+          <%= att.name %></label></span><br/>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -33,6 +33,14 @@ $(document).on('click','.site_accordion_title', function() {
 	*/
 });	
 
+$(document).on('click','.options_icon', function() {  
+	if ($(".display_options").is(":hidden")) {	
+		$(".display_options").slideDown();
+	} else {
+		$(".display_options").slideUp();
+	}
+});	
+
 $(document).on('page:change', function() {
 	$('.js_sort').change(function(){
 		var sort_type = $('input[name=sort]:checked').val();

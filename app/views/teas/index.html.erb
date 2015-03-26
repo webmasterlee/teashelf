@@ -1,10 +1,9 @@
 <% @page_title = "Your teas" %>
+<% @page_title_extra = image_tag("icon_options.png", :class => "options_icon") %>
 
 <% if @teas.any? %>
   
-  <div class="site_accordion limit_width">
-    <div class="site_accordion_title">Display Options</div>
-    <div class="site_accordion_desc display_options">
+    <div class="display_options box">
       <b>Sort By</b><br/>
       <span><label><input type="radio" name="sort" value="name" class="js_sort"> Name</label></span>
       <span><label><input type="radio" name="sort" value="tea_type" class="js_sort"> Tea Type</label></span>
@@ -18,7 +17,6 @@
         <% end %>
       <% end %>
     </div>
-  </div>
   
   <div class="wrapper">
     <% @teas.each do |tea| %>

@@ -30,8 +30,13 @@
 			<%= render 'layouts/nav' %>
 		<% end 	%>
 
-		<div class="page_title">
-			<%= @page_title %>
+		<div class="page_title_sec">
+			<span class="page_title">
+				<%= @page_title %>
+			</span>
+			<span class="page_title_extra">
+				<%= @page_title_extra %>
+			</span>
 		</div>
 
 		<% if notice %>

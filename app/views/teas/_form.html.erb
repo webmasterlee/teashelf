@@ -24,11 +24,11 @@
     <% if !@atts.blank? %>
       <div class="tr">
         <div class="td"><%= f.label "Attributes" %></div>
-        <div class="td top_padding">
+        <div class="td top_padding checkboxes">
           <% @atts.each do |att| %>
-              <%= check_box_tag "#{f.object_name}[att_ids][]", att.id, @tea.atts.include?(att) %>
+              <label><%= check_box_tag "#{f.object_name}[att_ids][]", att.id, @tea.atts.include?(att) %>
                <!--, @tea.teafinder_atts.include?(att)-->
-              <%= att.name %><br/>
+              <%= att.name %></label><br/>
           <% end %>
         </div>
       </div>

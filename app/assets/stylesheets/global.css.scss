@@ -325,6 +325,12 @@ border-color 0.3s ease-in;
 	border:1px solid #EFE7C1;
 	color:#96631B;    
   } 
+
+  .night_mode .success {
+  		background-image: none;
+  		background-color: #444;
+    	color: #ddd;
+    }
   
 /* CSS TABLES */
 /*when you don't need colspan*/
@@ -402,8 +408,12 @@ select {
 .hr {border-top:1px solid #bcbcbc;clear:both;height:1px;margin:10px 0;}
 hr {display:none;}
 
+.checkboxes label {
+	display: inline-block;
+    margin-bottom: 7px;
+}
 /*OTHER*/
-.display_options span {margin: 5px 15px 0 0;display: inline-block;}
+.display_options span {margin: 10px 15px 0 0;display: inline-block;}
 .display_options {
 	padding: 15px 3%;
 	display: none;

@@ -436,12 +436,14 @@ hr {display:none;}
 
 .out_of_stock .list_item_name a {color: #bbb;}
 
-.list_item_details {float: left;}
+.list_item_details {display: table-cell;}
 
 .edit_icon {
-	float: left;
-	margin-right: 7px;
-    margin-top: 4px;
+	display: table-cell;
+}
+
+.edit_icon img {
+	margin-right: 7px;    
 }
 
 .out_of_stock {

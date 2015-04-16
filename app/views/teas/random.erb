@@ -4,7 +4,7 @@
   <% if @tea.nil? %>
     <h1>Your search produced no results.</h1>  
   <% else %>
-    <h1>Today you should drink some <b><%= @tea.name %></b></h1>
+    <h1>Today you should drink some <b><%= link_to @tea.name, @tea, :class => "random_tea" %></b></h1>
   <% end %>
 </div>
 

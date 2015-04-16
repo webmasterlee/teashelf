@@ -28,7 +28,7 @@ class AttsController < ApplicationController
 
     respond_to do |format|
       if @att.save
-        format.html { redirect_to atts_url, notice: 'Att was successfully created.' }
+        format.html { redirect_to atts_url, notice: 'Attribute was successfully created.' }
         format.json { render :show, status: :created, location: @att }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AttsController < ApplicationController
   def update
     respond_to do |format|
       if @att.update(att_params)
-        format.html { redirect_to atts_url, notice: 'Att was successfully updated.' }
+        format.html { redirect_to atts_url, notice: 'Attribute was successfully updated.' }
         format.json { render :show, status: :ok, location: @att }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AttsController < ApplicationController
   def destroy
     @att.destroy
     respond_to do |format|
-      format.html { redirect_to atts_url, notice: 'Att was successfully deleted.' }
+      format.html { redirect_to atts_url, notice: 'Attribute was successfully deleted.' }
       format.json { head :no_content }
     end
   end

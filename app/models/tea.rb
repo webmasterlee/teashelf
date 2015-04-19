@@ -9,7 +9,7 @@ class Tea < ActiveRecord::Base
 
 	def self.search(search, user_id)
 		
-		@tea = Tea.select("name,id").where("teas.stock = ? and teas.user_id = ?", "In",user_id)
+		@tea = Tea.select("teas.name,teas.id").where("teas.stock = ? and teas.user_id = ?", "In",user_id)
 
 		if !search[:tea_type_id].blank?
 			@tea = @tea.where("tea_type_id = ?",search[:tea_type_id])
@@ -19,7 +19,7 @@ class Tea < ActiveRecord::Base
 			@tea = @tea.joins("INNER JOIN atts_teas ON teas.id = atts_teas.tea_id").where("atts_teas.att_id in (?)",search[:att].split(","))
 		end
 
-		@tea = @tea.group("name,id").order("random()").first
+		@tea = @tea.group("teas.name,teas.id").order("random()").first
 	end
 
 	def self.teaSort(searchParams, sortType, user_id)

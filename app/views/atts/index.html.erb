@@ -5,7 +5,7 @@
     <tbody>
       <% @atts.each do |att| %>
         <tr>
-          <td><%= link_to image_tag("btn_edit2x.png"), edit_att_path(att) %></td>
+          <td><%= link_to image_tag("btn_edit2x.png", :width => 16, :height => 16), edit_att_path(att) %></td>
           <td><%= att.name %></td>
         </tr>
       <% end %>

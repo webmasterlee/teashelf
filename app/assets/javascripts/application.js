@@ -42,7 +42,8 @@ $(document).on('click','.options_icon', function() {
 });	
 
 $(document).on('page:change', function() {
-	$('.js_sort').change(function(){
+	
+	$('.js_sort').click(function(){
 		var sort_type = $('input[name=sort]:checked').val();
 		var $divs = $(".list_item");
 
@@ -55,7 +56,7 @@ $(document).on('page:change', function() {
 	});
 
 	$('.js_narrow_by_att').change(function(){
-		var checked = []
+		var checked = [];
 		
 		$("input[name=att]:checked").map(function() {
     		checked.push(parseInt(this.value));
@@ -92,7 +93,7 @@ $(document).on('page:change', function() {
 });
 
 var sortByDataAtt = function(wrapperClass,objects,dataAtt) {
-	 var ordered = objects.sort(function (a, b) {
+	var ordered = objects.sort(function (a, b) {
 	    return $(a).data(dataAtt) > $(b).data(dataAtt);
 	});
 	$(wrapperClass).html(ordered);

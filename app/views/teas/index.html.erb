@@ -5,16 +5,21 @@
 <% if @teas.any? %>
 
   <div class="display_options box">
-    <b>Sort By</b><br/>
+    <!-- <b>Sort By</b><br/>
     <span><label><input type="radio" name="sort" value="name" class="js_sort"> Name</label></span>
-    <span><label><input type="radio" name="sort" value="tea_type" class="js_sort"> Tea Type</label></span>
+    <span><label><input type="radio" name="sort" value="tea_type" class="js_sort"> Tea Type</label></span> -->
     
     <% if !@atts.blank? %>
-      <br/><br/>
       <b>Show Only</b><br/>
       <% @atts.each do |att| %>
-        <span><label><input type="checkbox" class="js_narrow_by_att" name="att" value="<%= att.id %>">
-        <%= att.name %></label></span><br/>
+        <span><label>
+          <input type="checkbox" class="js_narrow_by_att" name="att" value="att_<%= att.id %>"> <%= att.name %>
+        </label></span><br/>
+      <% end %>
+      <% @tea_types.each do |tea_type| %>
+        <span><label>
+          <input type="checkbox" class="js_narrow_by_att" name="att" value="tea_type_<%= tea_type.id %>"> <%= tea_type.name %>
+        </label></span><br/>
       <% end %>
     <% end %>
   </div>
@@ -24,7 +29,8 @@
       
       <div data-sort_name="<%= tea.name.split(' ').first %>" 
           data-sort_type="<%= tea.tea_type.name.split(' ').first %>" 
-          data-atts="[<%= tea.atts.map { |att| att.id }.join(",") %>]"
+          data-atts='["<%= tea.atts.map { |att| att.id.to_s.prepend("att_") }.join("\",\"") %>",
+                      "tea_type_<%= tea.tea_type.id %>"]'
           class="list_item clearfix <% if tea.stock == "Out" %>out_of_stock<% end %>">
         
         <div class="edit_icon">

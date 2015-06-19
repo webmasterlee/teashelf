@@ -59,21 +59,23 @@ $(document).on('page:change', function() {
 		var checked = [];
 		
 		$("input[name=att]:checked").map(function() {
-    		checked.push(parseInt(this.value));
+    		checked.push(this.value);
 		});
 		
-		//console.log(checked);
+		console.log("checked");
+		console.log(checked);
 		
 		//var $divs = $(".list_item");
 		if (checked.length) {
 			$('.list_item').each(function(i, obj) {
 			    var thisAtts = $(this).data("atts");
+			    console.log("thisAtts" + thisAtts);
 			    var matches = [];
 
 			    $.each(checked, function( index, value ) {
-					
+					console.log("value:" + value);
 					if($.inArray(value, thisAtts) > -1){
-						//console.log("found " + value );
+						console.log("found " + value );
 						matches.push(value);
 					}
 				});
@@ -92,9 +94,11 @@ $(document).on('page:change', function() {
 	});
 });
 
+/*
 var sortByDataAtt = function(wrapperClass,objects,dataAtt) {
 	var ordered = objects.sort(function (a, b) {
 	    return $(a).data(dataAtt) > $(b).data(dataAtt);
 	});
 	$(wrapperClass).html(ordered);
 }
+*/

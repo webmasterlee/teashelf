@@ -53,12 +53,14 @@ body.night_mode {
 	body {
 		background-image:url(image_path('bg_1_sm.jpg'));
 		background-size: cover;
+		background-position: bottom right;
 	}
 	body.night_mode {
 		background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(image_path('bg_1_sm.jpg'));
 		background-repeat:no-repeat;
 		background-size: cover;
 		background-attachment: fixed;
+		background-position: bottom right;
 	}
 }
 

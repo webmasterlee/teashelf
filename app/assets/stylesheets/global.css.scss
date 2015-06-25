@@ -27,10 +27,16 @@ body {
 	color: #e14d39;
 	/*overflow: visible !important;*/ /*needed for fck textarea fullscreen*/
 	background-image:url(image_path('bg_1_lg.jpg'));
+	background-position: bottom;
+	background-attachment: fixed;
 	background-repeat:no-repeat;
 }
 
-body.night_mode {background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(image_path('bg_1_lg.jpg'));}
+body.night_mode {
+	background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(image_path('bg_1_lg.jpg'));
+	background-attachment: fixed;
+	background-position: bottom;
+}
 
 @media handheld, only screen and (max-width: 740px) {
 	body {
@@ -39,16 +45,20 @@ body.night_mode {background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8
 	body.night_mode {
 		background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(image_path('bg_1_med.jpg'));
 		background-repeat:no-repeat;
+		background-attachment: fixed;
 	}
 }
 
 @media handheld, only screen and (max-width: 490px) {
 	body {
 		background-image:url(image_path('bg_1_sm.jpg'));
+		background-size: cover;
 	}
 	body.night_mode {
 		background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url(image_path('bg_1_sm.jpg'));
 		background-repeat:no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
 	}
 }
 

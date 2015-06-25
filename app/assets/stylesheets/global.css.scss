@@ -49,7 +49,7 @@ body.night_mode {
 	}
 }
 
-@media handheld, only screen and (max-width: 490px) {
+@media handheld, only screen and (max-width: 600px) {
 	body, body.night_mode {
 		background-image:none;
 	}

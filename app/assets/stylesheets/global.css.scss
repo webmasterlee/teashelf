@@ -53,6 +53,7 @@ body.night_mode {
 	body, body.night_mode {
 		background-image:none;
 	}
+	.night_mode, .night_mode #master_frame_container  {background: #333 !important;}
 }
 
 a:link, a:visited {

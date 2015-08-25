@@ -12,8 +12,13 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def edit
     #super, the original method only renders the view
-    @night_mode = Preference.find_by :user_id => current_user.id, name: "night_mode_default"
-    @night_mode = @night_mode.value == "true" ? true : false
+    @night_mode = Preference.find_or_initialize_by :user_id => current_user.id, name: "night_mode_default"
+    
+    if @night_mode.blank?
+      @night_mode = false
+    else
+      @night_mode = @night_mode.value == "true" ? true : false
+    end
   end
 
   

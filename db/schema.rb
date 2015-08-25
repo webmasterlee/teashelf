@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324115447) do
+ActiveRecord::Schema.define(version: 20150811121656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20150324115447) do
 
   add_index "atts_teas", ["att_id"], name: "index_atts_teas_on_att_id", using: :btree
   add_index "atts_teas", ["tea_id"], name: "index_atts_teas_on_tea_id", using: :btree
+
+  create_table "preferences", force: true do |t|
+    t.text     "name"
+    t.text     "value"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "preferences", ["user_id"], name: "index_preferences_on_user_id", using: :btree
 
   create_table "tea_types", force: true do |t|
     t.string   "name"

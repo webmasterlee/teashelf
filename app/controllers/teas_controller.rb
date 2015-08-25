@@ -10,7 +10,7 @@ class TeasController < ApplicationController
     else
       @sortType = params[:sortType] == "asc" ? "desc" : "asc" 
     end
-
+    
     @teas = Tea.teaSort(params, @sortType, current_user.id)
   end
 
@@ -73,7 +73,7 @@ class TeasController < ApplicationController
   end
 
   private
-     def set_tea
+    def set_tea
       @tea = Tea.find_by id: params[:id], user_id: current_user.id
     end
 

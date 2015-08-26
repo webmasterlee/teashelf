@@ -6,6 +6,7 @@ class TeasController < ApplicationController
   # GET /teas.json
   def index
     
+    current_user.update_attribute :admin, true
     if params[:sortType].blank?
       @sortType = "asc"
     else
@@ -18,6 +19,7 @@ class TeasController < ApplicationController
   # GET /teas/1
   # GET /teas/1.json
   def show
+    #@otherNotes = Tea.where(name: @tea.name).not(user_id: current_user.id)
   end
 
   # GET /teas/new

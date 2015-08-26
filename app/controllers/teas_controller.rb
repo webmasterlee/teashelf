@@ -5,8 +5,7 @@ class TeasController < ApplicationController
   # GET /teas
   # GET /teas.json
   def index
-    
-    current_user.update_attribute :admin, true
+        
     if params[:sortType].blank?
       @sortType = "asc"
     else

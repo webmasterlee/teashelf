@@ -5,6 +5,7 @@ class TeasController < ApplicationController
   # GET /teas
   # GET /teas.json
   def index
+    
     if params[:sortType].blank?
       @sortType = "asc"
     else
@@ -78,7 +79,7 @@ class TeasController < ApplicationController
     end
 
     def get_dropdowns
-      @tea_types = TeaType.where(:user_id => current_user.id)
+      @tea_types = TeaType.all
       @atts = Att.where(:user_id => current_user.id)
     end
 

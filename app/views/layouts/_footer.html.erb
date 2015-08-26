@@ -1,6 +1,8 @@
 <div class="footer">
-	<%= link_to 'Types', tea_types_path %> 
-	<span>|</span>
+	<% if current_user.try(:admin?) %>
+		<%= link_to 'Types', tea_types_path %> 
+		<span>|</span>
+	<% end %>
 	<%= link_to 'Attributes', atts_path %>
 	<span>|</span>
 	

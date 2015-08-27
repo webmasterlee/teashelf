@@ -5,7 +5,7 @@ class TeasController < ApplicationController
   # GET /teas
   # GET /teas.json
   def index
-        
+
     if params[:sortType].blank?
       @sortType = "asc"
     else
@@ -18,7 +18,8 @@ class TeasController < ApplicationController
   # GET /teas/1
   # GET /teas/1.json
   def show
-    #@otherNotes = Tea.where(name: @tea.name).not(user_id: current_user.id)
+    @otherNotes = Tea.where(name: @tea.name).where.not(user_id: current_user.id).limit(20)
+    @suggestions = Tea.where(tea_type: @tea.tea_type, user_id: Tea.select("user_id").where(name: @tea.name).where.not(user_id: current_user.id)).select(:name).distinct
   end
 
   # GET /teas/new

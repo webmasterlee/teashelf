@@ -9,18 +9,21 @@
     <span><label><input type="radio" name="sort" value="name" class="js_sort"> Name</label></span>
     <span><label><input type="radio" name="sort" value="tea_type" class="js_sort"> Tea Type</label></span> -->
     
-    <% if !@atts.blank? %>
+    <% if @atts.blank? %>
+      Add your own <%= link_to 'custom attributes', new_att_path %> and assign them to your teas for better organization and filtering.<br/><br/>
+    <% else %>
       <b>Show Only</b><br/>
       <% @atts.each do |att| %>
         <span><label>
           <input type="checkbox" class="js_narrow_by_att" name="att" value="att_<%= att.id %>"> <%= att.name %>
         </label></span><br/>
       <% end %>
-      <% @tea_types.each do |tea_type| %>
-        <span><label>
-          <input type="checkbox" class="js_narrow_by_att" name="att" value="tea_type_<%= tea_type.id %>"> <%= tea_type.name %>
-        </label></span><br/>
-      <% end %>
+    <% end %>
+
+    <% @tea_types.each do |tea_type| %>
+      <span><label>
+        <input type="checkbox" class="js_narrow_by_att" name="att" value="tea_type_<%= tea_type.id %>"> <%= tea_type.name %>
+      </label></span><br/>
     <% end %>
   </div>
 

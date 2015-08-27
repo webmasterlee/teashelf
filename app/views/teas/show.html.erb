@@ -29,6 +29,25 @@
   </div>
 </div>
 
+<div class="site_accordion">
+  <div class="site_accordion_title">Community Steeping Notes</div>
+  <div class="site_accordion_desc">
+    <% @otherNotes.each do |otherNotes| %>
+    <%= simple_format otherNotes.notes %>
+    <hr/>
+    <% end %>
+  </div>
+</div>
+
+<div class="site_accordion">
+  <div class="site_accordion_title">Teas you might like</div>
+  <div class="site_accordion_desc">
+    <% @suggestions.each do |suggestions| %>
+      <%= suggestions.name %><br/>
+    <% end %>
+  </div>
+</div>
+
 <br/>
 
 <%= link_to 'Edit', edit_tea_path(@tea) %> |

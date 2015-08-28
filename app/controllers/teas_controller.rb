@@ -19,7 +19,8 @@ class TeasController < ApplicationController
   # GET /teas/1.json
   def show
     @otherNotes = Tea.where(name: @tea.name).where.not(user_id: current_user.id).limit(20)
-    @suggestions = Tea.where(tea_type: @tea.tea_type, user_id: Tea.select("user_id").where(name: @tea.name).where.not(user_id: current_user.id)).select(:name).distinct
+    #@suggestions = Tea.where(tea_type: @tea.tea_type, user_id: Tea.select("user_id").where(name: @tea.name).where.not(user_id: current_user.id)).where.not(name: @tea.name)
+    @suggestions = Tea.find_by_sql(["select distinct on (name) name,vendor,url from teas where tea_type_id = ? and name != ? and user_id in (select user_id from teas where name = ? and user_id != ?)", @tea.tea_type_id, @tea.name,@tea.name, current_user.id ])
   end
 
   # GET /teas/new
@@ -87,7 +88,7 @@ class TeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tea_params
-      atts = params.require(:tea).permit(:name, :stock, :tea_type_id, :url, :notes, :att_ids => [])
+      atts = params.require(:tea).permit(:name, :stock, :tea_type_id, :vendor, :url, :notes, :att_ids => [])
       atts[:user_id] = current_user.id
       atts
     end

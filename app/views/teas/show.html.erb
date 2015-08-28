@@ -19,6 +19,11 @@
   </div>
 
   <div class="tr">
+    <div class="td">Vendor</div>
+    <div class="td"><%= @tea.vendor %></div>
+  </div>
+
+  <div class="tr">
     <div class="td">Url</div>
     <div class="td"><%= @tea.url %></div>
   </div>
@@ -29,24 +34,46 @@
   </div>
 </div>
 
+<% if !@otherNotes.blank? %>
 <div class="site_accordion">
-  <div class="site_accordion_title">Community Steeping Notes</div>
+  <div class="site_accordion_title">Community steeping notes</div>
   <div class="site_accordion_desc">
+    <div class="table full_width_table last_cell_right altrowcolor">
     <% @otherNotes.each do |otherNotes| %>
-    <%= simple_format otherNotes.notes %>
-    <hr/>
+        <div class="tr">
+          <div class="td"><%= simple_format otherNotes.notes %></div>
+          <div class="td small"><%= otherNotes.user.username %></div>
+        </div>
     <% end %>
+    </div>
   </div>
 </div>
+<% end %>
 
-<div class="site_accordion">
-  <div class="site_accordion_title">Teas you might like</div>
-  <div class="site_accordion_desc">
-    <% @suggestions.each do |suggestions| %>
-      <%= suggestions.name %><br/>
-    <% end %>
-  </div>
-</div>
+<% if !@suggestions.blank? %>
+    <div class="site_accordion">
+        <div class="site_accordion_title">Others also have...</div>
+        <div class="site_accordion_desc">
+            <div class="table full_width_table last_cell_right altrowcolor">
+                <% @suggestions.each do |suggestions| %>
+                    <div class="tr">
+                        <div class="td"><%= suggestions.name %></div>
+                        <div class="td small">
+                            <% if !suggestions.url.blank? %>
+                                Url: <b><%= suggestions.url %></b>
+                            <% end %>
+                            <% if !suggestions.vendor.blank? %>
+                                <% if !suggestions.url.blank? %><br/><% end %>
+                                From: <b><%= suggestions.vendor %></b>
+                            <% end %>
+                            
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>
 
 <br/>
 

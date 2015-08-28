@@ -40,6 +40,11 @@
     <% end %>
 
     <div class="tr">
+      <div class="td">Vendor</div>
+      <div class="td"><%= f.text_field :vendor %></div>
+    </div>
+
+    <div class="tr">
       <div class="td"><%= f.label :url %></div>
       <div class="td"><%= f.text_field :url %></div>
     </div>
@@ -53,7 +58,7 @@
 
     <div class="tr">
       <div class="td"></div>
-      <div class="td"><%= f.submit "Submit", :class => "btn" %></div>
+      <div class="td"><%= f.submit "Save", :class => "btn" %></div>
     </div>
   </div>
 

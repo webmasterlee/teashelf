@@ -1,15 +1,15 @@
 <% @page_title = "Sign In" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "required_form_bottom"}) do |f| %>
   
 <div class="table first_cell_right first_cell_valign full_width_table_on_mobile">
 	<div class="tr">
 		<div class="td"><%= f.label :email %></div>
-		<div class="td"><%= f.email_field :email, autofocus: true %></div>
+		<div class="td"><%= f.email_field :email, autofocus: true,:class => "required" %></div>
 	</div>
 	<div class="tr">
 		<div class="td"><%= f.label :password %></div>
-		<div class="td"><%= f.password_field :password, autocomplete: "off" %></div>
+		<div class="td"><%= f.password_field :password, autocomplete: "off",:class => "required" %></div>
 	</div>
 	<div class="tr">
 		<div class="td"></div>

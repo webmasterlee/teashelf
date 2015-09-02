@@ -56,7 +56,7 @@ class WishlistsController < ApplicationController
   def destroy
     @wishlist.destroy
     respond_to do |format|
-      format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.' }
+      format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,8 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:name, :notes, :url, :user_id)
+      atts = params.require(:wishlist).permit(:name, :notes, :url, :user_id)
+      atts[:user_id] = current_user.id
+      atts
     end
 end

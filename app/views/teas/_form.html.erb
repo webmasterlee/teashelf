@@ -1,10 +1,10 @@
-<%= form_for @tea do |f| %>
+<%= form_for @tea, html: {class: "required_form_bottom"} do |f| %>
   <%= format_message(@tea.errors.full_messages) %>
 
   <div class="table first_cell_right first_cell_valign full_width_table_on_mobile">
     <div class="tr">
       <div class="td"><%= f.label :name %></div>
-      <div class="td"><%= f.text_field :name, autofocus: true %></div>
+      <div class="td"><%= f.text_field :name, autofocus: true, :class => "required" %></div>
     </div>
 
     <div class="tr">
@@ -17,7 +17,7 @@
     <div class="tr">
       <div class="td"><%= f.label :tea_type_id %></div>
       <div class="td">
-        <%= select_tag 'tea[tea_type_id]', options_from_collection_for_select(@tea_types, 'id', 'name', @tea.tea_type.nil? ? '' : @tea.tea_type.id), prompt: "Choose..." %>
+        <%= select_tag 'tea[tea_type_id]', options_from_collection_for_select(@tea_types, 'id', 'name', @tea.tea_type.nil? ? '' : @tea.tea_type.id), prompt: "Choose...", class: "required" %>
       </div>
     </div>
 

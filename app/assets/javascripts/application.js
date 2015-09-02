@@ -43,6 +43,14 @@ $(document).on('click','.options_icon', function() {
 
 $(document).on('page:change', function() {
 	
+	// the 'right' means error messages will appear to the right
+	// can only be one of these on page
+	$(".required_form_right").validate();	
+
+	// the 'bottom' means error messages will appear to the bottom
+	// can only be one of these on page
+	$(".required_form_bottom").validate({errorElement: "div"});
+
 	$('.js_sort').click(function(){
 		var sort_type = $('input[name=sort]:checked').val();
 		var $divs = $(".list_item");

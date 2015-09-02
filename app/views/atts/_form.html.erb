@@ -1,11 +1,11 @@
-<%= form_for(@att) do |f| %>
+<%= form_for @att, html: {class: "required_form_bottom"} do |f| %>
 
   <%= format_message(@att.errors.full_messages) %>
 
   <div class="table first_cell_right first_cell_valign full_width_table_on_mobile">
     <div class="tr">
       <div class="td"><%= f.label :name %></div>
-      <div class="td"><%= f.text_field :name, autofocus: true %></div>
+      <div class="td"><%= f.text_field :name, autofocus: true, :class => "required" %></div>
     </div>
 
     <div class="tr">

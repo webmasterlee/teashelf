@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :atts
 
   get 'teas/random'
+  get 'teas/get_tea_names'
   root 'teas#index'
   
   resources :teas

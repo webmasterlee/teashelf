@@ -9,8 +9,11 @@ group :production, :staging do
     gem 'rails_12factor'
 end
 
+gem 'strip_attributes', '1.7.1'
+
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'

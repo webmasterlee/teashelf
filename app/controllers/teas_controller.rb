@@ -76,6 +76,13 @@ class TeasController < ApplicationController
     end
   end
 
+  def get_tea_names
+    @tea_names = Tea.all.select("name").order("name")
+  render json: @tea_names
+    @tea_names2 = Tea.all.pluck(:name)    
+    #render json: @tea_names2
+  end
+
   private
     def set_tea
       @tea = Tea.find_by id: params[:id], user_id: current_user.id

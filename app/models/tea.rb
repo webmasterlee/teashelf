@@ -6,6 +6,7 @@ class Tea < ActiveRecord::Base
 	validates :stock, presence: true
 	validates :tea_type_id, presence: true
 	validates :user_id, presence: true
+	strip_attributes
 
 	def self.search(search, user_id)
 		

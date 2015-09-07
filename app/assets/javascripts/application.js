@@ -43,6 +43,19 @@ $(document).on('click','.options_icon', function() {
 
 $(document).on('page:change', function() {
 	
+	var teas = new Bloodhound({
+	  datumTokenizer: Bloodhound.tokenizers.whitespace,
+	  queryTokenizer: Bloodhound.tokenizers.whitespace,
+	  prefetch: '/teas/get_tea_names'
+	});
+
+	// passing in `null` for the `options` arguments will result in the default
+	// options being used
+	$('.typeahead').typeahead(null, {
+	  name: 'teas',
+	  source: teas
+	});
+	
 	// the 'right' means error messages will appear to the right
 	// can only be one of these on page
 	$(".required_form_right").validate();	

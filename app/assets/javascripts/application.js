@@ -51,11 +51,14 @@ $(document).on('page:change', function() {
 
 	// passing in `null` for the `options` arguments will result in the default
 	// options being used
-	$('.typeahead').typeahead(null, {
+	$('.typeahead').typeahead({
+		minLength: 3
+	}, 
+	{
 	  name: 'teas',
 	  source: teas
 	});
-	
+
 	// the 'right' means error messages will appear to the right
 	// can only be one of these on page
 	$(".required_form_right").validate();	

@@ -12,13 +12,14 @@ class TeasController < ApplicationController
       @sortType = params[:sortType] == "asc" ? "desc" : "asc" 
     end
     
-    @teas = Tea.teaSort(params, @sortType, current_user.id)
+    @teas = Tea.teaSort(params, @sortType, current_user.id).order("name")
   end
 
   # GET /teas/1
   # GET /teas/1.json
   def show
-    @otherNotes = Tea.where(name: @tea.name).where.not(user_id: current_user.id).limit(20)
+    #@otherNotes = Tea.where(name: @tea.name).where.not(user_id: current_user.id).limit(20)
+    @otherNotes = Tea.where("name = ? and user_id != ? and notes is not null and notes !=''", @tea.name, current_user.id).limit(20)
     #@suggestions = Tea.where(tea_type: @tea.tea_type, user_id: Tea.select("user_id").where(name: @tea.name).where.not(user_id: current_user.id)).where.not(name: @tea.name)
     @suggestions = Tea.find_by_sql(["select distinct on (name) name,vendor,url from teas where tea_type_id = ? and name != ? and user_id in (select user_id from teas where name = ? and user_id != ?)", @tea.tea_type_id, @tea.name,@tea.name, current_user.id ])
   end
@@ -77,10 +78,10 @@ class TeasController < ApplicationController
   end
 
   def get_tea_names
-    @tea_names = Tea.all.select("name").order("name")
-  #render json: @tea_names
-    @tea_names2 = Tea.all.pluck(:name)    
-  render json: @tea_names2
+    #@tea_names = Tea.all.select("name").order("name")
+    #render json: @tea_names
+    @tea_names = Tea.all.pluck(:name)    
+    render json: @tea_names
   end
 
   private

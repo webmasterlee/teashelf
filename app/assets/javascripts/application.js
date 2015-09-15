@@ -43,6 +43,15 @@ $(document).on('click','.options_icon', function() {
 
 $(document).on('page:change', function() {
 	
+	/*$('.tea_form').submit(function(){
+		console.log($('#tea_name').val());
+		if ($('#tea_name').val() == '') {
+			$('#tea_name-error').show();
+			return false;
+		}
+		return false;
+	});*/
+
 	var teas = new Bloodhound({
 	  datumTokenizer: Bloodhound.tokenizers.whitespace,
 	  queryTokenizer: Bloodhound.tokenizers.whitespace,

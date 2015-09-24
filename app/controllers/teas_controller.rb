@@ -1,6 +1,7 @@
 class TeasController < ApplicationController
   before_action :set_tea, only: [:show, :edit, :update, :destroy]
-  before_action :get_dropdowns, only: [:index, :new, :edit, :create, :random]
+  before_action :get_dropdowns, only: [ :new, :edit, :create]
+  before_action :get_my_dropdowns, only: [:index, :random]
 
   # GET /teas
   # GET /teas.json
@@ -87,6 +88,12 @@ class TeasController < ApplicationController
   private
     def set_tea
       @tea = Tea.find_by id: params[:id], user_id: current_user.id
+    end
+
+    def get_my_dropdowns
+      @tea_types = TeaType.find_by_sql(["select distinct a.name, a.id from tea_types a, teas b where a.id = b.tea_type_id and b.user_id = ?", current_user.id ])
+      @atts = TeaType.find_by_sql(["select distinct a.name, a.id from atts a, atts_teas b where a.id = b.att_id and a.user_id = ?", current_user.id ])
+
     end
 
     def get_dropdowns

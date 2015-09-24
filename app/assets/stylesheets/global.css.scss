@@ -296,7 +296,7 @@ a.selected {
 }
 .night_mode .box {border-top-width: 1px;border-bottom-width:1px;}
 .btn {
-background-color: white;
+background-color: rgba(255, 255, 255, 0.5);
 border: 2px solid #ff904c;
 color: #ff904c;
 display: inline-block;
@@ -318,7 +318,7 @@ color: #fff;
 }
 
 .night_mode .btn {
-	background-color: #333333;
+	background-color: rgba(50, 50, 50, 0.5);
 }
 
 .night_mode .btn:hover, .night_mode .btn:active {

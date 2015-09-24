@@ -17,8 +17,11 @@
   <div class="table first_cell_right first_cell_valign">
     <div class="tr">
       <div class="td">Type</div>
-      <div class="td">
-         <%= select_tag 'tea_type_id', options_from_collection_for_select(@tea_types, 'id', 'name'), prompt: "Choose..." %>
+      <div class="td top_padding">
+        <% @tea_types.each do |type| %>
+          <label><input type="radio" name="tea_type_id" value="<%= type.id %>">
+            <%= type.name %></label><br/>
+        <% end %>
        </div>
     </div>
 

@@ -19,8 +19,7 @@
       <div class="td">Type</div>
       <div class="td top_padding">
         <% @tea_types.each do |type| %>
-          <label><input type="radio" name="tea_type_id" value="<%= type.id %>">
-            <%= type.name %></label><br/>
+          <label><input type="checkbox" name="tea_type_id[]" value="<%= type.id %>"> <%= type.name %></label><br/>
         <% end %>
        </div>
     </div>
@@ -30,8 +29,7 @@
         <div class="td">Attributes</div>
         <div class="td top_padding checkboxes">
            <% @atts.each do |att| %>
-            <label><input type="checkbox" name="att" value="<%= att.id %>">
-            <%= att.name %></label><br/>
+            <label><input type="checkbox" name="att_id[]" value="<%= att.id %>"> <%= att.name %></label><br/>
           <% end %>
          </div>
       </div>

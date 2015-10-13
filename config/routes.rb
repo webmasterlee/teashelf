@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :atts
 
+  get 'info/index'
   get 'teas/random'
   get 'teas/get_tea_names'
-  root 'teas#index'
+  root 'info#index'
   
   resources :teas
 

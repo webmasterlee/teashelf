@@ -41,6 +41,10 @@ $(document).on('click','.options_icon', function() {
 	}
 });	
 
+$(document).on('click','.js_css_msg_target', function() {  
+	$(this).slideUp();
+});	
+
 $(document).on('page:change', function() {
 	
 	/*$('.tea_form').submit(function(){

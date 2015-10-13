@@ -5,7 +5,7 @@ module ApplicationHelper
 
 		if !message.blank? and (message.respond_to? (:each) or message.respond_to? (:to_str))
 
-			results = "<div class='#{cssClass}'><div class='msgMargin'>"
+			results = "<div class='#{cssClass} js_css_msg_target'><div class='msgMargin'>"
 
 			if message.respond_to? (:each)
 

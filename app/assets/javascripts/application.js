@@ -45,6 +45,46 @@ $(document).on('click','.js_css_msg_target', function() {
 	$(this).slideUp();
 });	
 
+$(document).on('click','.js_add_to_wishlist', function() { 
+
+	var link = $(this); 
+
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			'wishlist[name]': $(this).data("name"), 
+			'wishlist[url]': $(this).data("url"),
+			'wishlist[notes]': $(this).data("notes")
+		},
+		url: '/wishlists/save_suggestion',
+		success: function(result, textStatus, XMLHttpRequest) {
+			link.replaceWith("Saved to Wishlist");
+		}
+	});
+});	
+
+$(document).on('blur keyup','.js_username', function() {  
+	if ($('.js_username').val().length > 3) {
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'username': $('.js_username').val() },
+			url: '/account/found_username',
+			success: function(result, textStatus, XMLHttpRequest) {
+				
+				if(result == 1){
+					$('#username_error').show();
+					$('#username_success').hide();
+				} else {
+					$('#username_error').hide();
+					$('#username_success').show();
+				}
+			}
+		});
+	}
+});
+
 $(document).on('page:change', function() {
 	
 	/*$('.tea_form').submit(function(){

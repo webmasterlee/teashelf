@@ -57,8 +57,9 @@
             <div class="table full_width_table last_cell_right altrowcolor">
                 <% @suggestions.each do |suggestions| %>
                     <div class="tr">
-                        <div class="td"><%= suggestions.name %></div>
-                        <div class="td small">
+                        <div class="td">
+                          <%= suggestions.name %>
+                          <div class="small">
                             <% if !suggestions.url.blank? %>
                                 Url: <b><%= suggestions.url %></b>
                             <% end %>
@@ -66,7 +67,16 @@
                                 <% if !suggestions.url.blank? %><br/><% end %>
                                 From: <b><%= suggestions.vendor %></b>
                             <% end %>
-                            
+                          </div>
+                        </div>
+                        <div class="td small">
+                            <a href="javascript:;" 
+                              class="js_add_to_wishlist"
+                              data-name="<%= suggestions.name %>"
+                              <% if !suggestions.vendor.blank? %>
+                                data-notes="From: <%= suggestions.vendor %>"
+                              <% end %>
+                              data-url="<%= suggestions.url %>">Add to Wishlist</a>
                         </div>
                     </div>
                 <% end %>

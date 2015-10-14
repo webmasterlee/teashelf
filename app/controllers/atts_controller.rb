@@ -26,9 +26,19 @@ class AttsController < ApplicationController
   def create
     @att = Att.new(att_params)
 
+
     respond_to do |format|
       if @att.save
-        format.html { redirect_to atts_url, notice: 'Attribute was successfully created.' }
+
+        attExist = Att.where(:user_id => current_user.id).limit(1)
+
+        if attExist.count
+          msg = 'Attribute was successfully created.'
+        else
+          msg = ['Attribute was successfully created.','You can now this attribute to your teas!']
+        end
+        
+        format.html { redirect_to atts_url, notice: msg }
         format.json { render :show, status: :created, location: @att }
       else
         format.html { render :new }

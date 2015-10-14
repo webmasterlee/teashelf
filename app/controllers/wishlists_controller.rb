@@ -21,6 +21,12 @@ class WishlistsController < ApplicationController
   def edit
   end
 
+  def save_suggestion
+    @wishlist = Wishlist.new(wishlist_params)
+    @wishlist.save
+    render json: true
+  end
+
   # POST /wishlists
   # POST /wishlists.json
   def create

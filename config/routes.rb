@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   get 'info/index'
   get 'teas/random'
   get 'teas/get_tea_names'
-  root 'info#index'
+  post 'account/found_username'
+  post 'wishlists/save_suggestion'
+  root 'teas#index'
   
+  #get '/about' => 'pages#about'
+
   resources :teas
 
   resources :wishlists

@@ -22,7 +22,7 @@ class TeasController < ApplicationController
     #@otherNotes = Tea.where(name: @tea.name).where.not(user_id: current_user.id).limit(20)
     @otherNotes = Tea.where("name = ? and user_id != ? and notes is not null and notes !=''", @tea.name, current_user.id).limit(20)
     #@suggestions = Tea.where(tea_type: @tea.tea_type, user_id: Tea.select("user_id").where(name: @tea.name).where.not(user_id: current_user.id)).where.not(name: @tea.name)
-    @suggestions = Tea.find_by_sql(["select distinct on (name) name,vendor,url from teas where tea_type_id = ? and name != ? and user_id in (select user_id from teas where name = ? and user_id != ?) and name not in (select name from wishlists where user_id = ?)", @tea.tea_type_id, @tea.name,@tea.name, current_user.id, current_user.id ])
+    @suggestions = Tea.find_by_sql(["select distinct on (name) name,vendor,url from teas where tea_type_id = ? and upper(name) != ? and user_id in (select user_id from teas where upper(name) = ? and user_id != ?) and upper(name) not in (select upper(name) from wishlists where user_id = ?) and upper(name) not in (select upper(value) from exclusions where user_id = ? and attr = 'tea_name')", @tea.tea_type_id, @tea.name.upcase,@tea.name.upcase, current_user.id, current_user.id, current_user.id ])
   end
 
   # GET /teas/new

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'exclusions/create'
+
   resources :notes
 
   resources :atts

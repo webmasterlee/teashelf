@@ -64,6 +64,24 @@ $(document).on('click','.js_add_to_wishlist', function() {
 	});
 });	
 
+$(document).on('click','.js_add_exclusion', function() { 
+
+	var link = $(this); 
+
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			'exclusion[attr]': $(this).data("attr"), 
+			'exclusion[value]': $(this).data("value")
+		},
+		url: '/exclusions/create',
+		success: function(result, textStatus, XMLHttpRequest) {
+			link.replaceWith("<span class='margin_left'>Preferences updated</span>");
+		}
+	});
+});	
+
 $(document).on('blur keyup','.js_username', function() {  
 	if ($('.js_username').val().length > 3) {
 		$.ajax({

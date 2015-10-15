@@ -77,6 +77,11 @@
                                 data-notes="From: <%= suggestions.vendor %>"
                               <% end %>
                               data-url="<%= suggestions.url %>">Add to Wishlist</a>
+
+                            <a href="javascript:;" 
+                              class="js_add_exclusion margin_left"
+                              data-attr="tea_name"
+                              data-value="<%= suggestions.name %>">Not Interested</a>
                         </div>
                     </div>
                 <% end %>

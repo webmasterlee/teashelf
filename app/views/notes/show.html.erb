@@ -1,0 +1,7 @@
+<% @page_title = @note.title %>
+
+<div class="text_maxwdith"><%= simple_format @note.body %></div>
+<br/>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Notes', notes_path %>

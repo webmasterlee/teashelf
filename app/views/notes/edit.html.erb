@@ -1,0 +1,6 @@
+<% @page_title = "Edit Note" %>
+
+<%= render 'form' %>
+
+<%= link_to 'Notes', notes_path %> |
+<%= link_to 'Delete', note_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>

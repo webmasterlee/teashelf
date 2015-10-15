@@ -1,0 +1,23 @@
+<%= form_for @note, html: {class: "required_form_bottom"} do |f| %>
+  <%= format_message(@note.errors.full_messages) %>
+
+  <div class="table first_cell_right first_cell_valign">
+    <div class="tr">
+      <div class="td"><%= f.label :title %></div>
+      <div class="td"><%= f.text_field :title, autofocus: true, :class => "required" %></div>
+    </div>
+
+    <div class="tr">
+      <div class="td"><label for="note_body">Note</label></div>
+      <div class="td">
+        <%= f.text_area :body, :class => "required", :rows => 6 %>
+      </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"></div>
+      <div class="td"><%= f.submit "Save", :class => "btn" %></div>
+    </div>
+  </div>
+  <br/>
+<% end %>

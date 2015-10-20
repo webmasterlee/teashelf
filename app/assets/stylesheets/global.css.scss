@@ -371,6 +371,7 @@ background-color: #ff904c;
 /*when you don't need colspan*/
 .table  {display: table;}
 .tr {display: table-row;}
+.tr.hide {display: none;}
 .td {display: table-cell;padding: 0 10px 15px 0;}
 .disclaimertext .td {padding-bottom: 3px;}
 .first_cell_right .td:first-child {text-align:right;vertical-align: top;}

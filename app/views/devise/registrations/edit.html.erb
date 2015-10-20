@@ -13,7 +13,7 @@
         <div class="tr">
             <div class="td"><%= f.label :username %></div>
             <div class="td">
-                <%= f.text_field :username, autofocus: true, maxlength: 20, :class => "js_username" %>
+                <%= f.text_field :username, autofocus: true, maxlength: 20, :class => "js_username", 'data-current_username'=> current_user.username %>
                 <div class="red hide" id="username_error">Sorry, that username is taken. Please try again.</div>
                 <div class="hide" id="username_success">Username is available.</div>
             </div>
@@ -23,26 +23,32 @@
             <div class="td"><%= f.label :email %></div>
             <div class="td"><%= f.email_field :email %></div>
         </div>
+
         <div class="tr">
-            <div class="td"><%= f.label :password %></div>
+            <div class="td"></div>
+            <div class="td"><a href="javascript:;" class="js_change_password">change password</a></div>
+        </div>
+
+        <div class="tr hide js_pw">
+            <div class="td"><%= f.label :password, "New Password" %></div>
             <div class="td">
                 <%= f.password_field :password, autocomplete: "off" %><br/>
-                (leave blank if you don't want to change it)
             </div>
         </div>
 
-        <div class="tr">
+        <div class="tr hide js_pw">
             <div class="td"><%= f.label :password_confirmation %></div>
             <div class="td"><%= f.password_field :password_confirmation, autocomplete: "off" %></div>
         </div>
 
-        <div class="tr">
+         <div class="tr hide js_pw">
             <div class="td"><%= f.label :current_password %></div>
             <div class="td">
-                <%= f.password_field :current_password, autocomplete: "off",:class => "required" %><br/>
+                <%= f.password_field :current_password, autocomplete: "off" %><br/>
                 (we need your current password to confirm your changes)
             </div>
         </div>
+
         <div class="tr">
             <div class="td"><h1>Preferences</h1></div>
             <div class="td"></div>

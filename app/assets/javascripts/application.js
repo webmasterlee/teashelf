@@ -64,6 +64,10 @@ $(document).on('click','.js_add_to_wishlist', function() {
 	});
 });	
 
+$(document).on('click','.js_change_password', function() { 
+	$(".js_pw").css("display", "table-row");
+});	
+
 $(document).on('click','.js_add_exclusion', function() { 
 
 	var link = $(this); 
@@ -83,7 +87,7 @@ $(document).on('click','.js_add_exclusion', function() {
 });	
 
 $(document).on('blur keyup','.js_username', function() {  
-	if ($('.js_username').val().length > 3) {
+	if ($('.js_username').val().length > 3 && $(this).data("current_username") != $('.js_username').val()) {
 		$.ajax({
 			type: 'POST',
 			dataType: 'json',
@@ -114,21 +118,24 @@ $(document).on('page:change', function() {
 		return false;
 	});*/
 
-	var teas = new Bloodhound({
-	  datumTokenizer: Bloodhound.tokenizers.whitespace,
-	  queryTokenizer: Bloodhound.tokenizers.whitespace,
-	  prefetch: '/teas/get_tea_names'
-	});
+	if ($(".typeahead").length) {
+ 
+		var teas = new Bloodhound({
+		  datumTokenizer: Bloodhound.tokenizers.whitespace,
+		  queryTokenizer: Bloodhound.tokenizers.whitespace,
+		  prefetch: '/teas/get_tea_names'
+		});
 
-	// passing in `null` for the `options` arguments will result in the default
-	// options being used
-	$('.typeahead').typeahead({
-		minLength: 3
-	}, 
-	{
-	  name: 'teas',
-	  source: teas
-	});
+		// passing in `null` for the `options` arguments will result in the default
+		// options being used
+		$('.typeahead').typeahead({
+			minLength: 3
+		}, 
+		{
+		  name: 'teas',
+		  source: teas
+		});
+	}
 
 	// the 'right' means error messages will appear to the right
 	// can only be one of these on page

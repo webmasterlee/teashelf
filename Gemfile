@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'pg'
 
+gem 'quiet_assets', group: :development
+
 #for heroku
 gem 'puma'
 

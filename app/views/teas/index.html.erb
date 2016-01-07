@@ -43,11 +43,13 @@
         <div class="list_item_details">
           <div class="list_item_name">
             <%= link_to tea.name, tea, :class => "tea_name_link" %>
+            
+            <!-- FAVORITES -->
             <% if tea.favorite %>
               <% if session[:night_mode] == "on" %>
-                <%= image_tag("icon_star_night2x.png", :width => 16, :height => 16, :alt => "Favorite") %>
+                <%= image_tag("icon_star_night2x.png", :width => 16, :height => 16, :alt => "Favorite", :class => "favorite") %>
               <% else %>
-                <%= image_tag("icon_star_day2x.png", :width => 16, :height => 16, :alt => "Favorite") %>
+                <%= image_tag("icon_star_day2x.png", :width => 16, :height => 16, :alt => "Favorite", :class => "favorite") %>
               <% end %>
             <% end %>
           </div>

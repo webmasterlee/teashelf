@@ -479,6 +479,8 @@ textarea {
     width: 95%;
 }
 
+.editor_mode {max-width: none;}
+
 textarea, input[type="text"], input[type="email"], input[type="password"], input[type="datefield"], input[type="file"]  {
 	border: 2px solid #ffdb7a;
 	padding: 8px 6px;

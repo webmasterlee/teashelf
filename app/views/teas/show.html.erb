@@ -25,7 +25,11 @@
 
   <div class="tr">
     <div class="td">Url</div>
-    <div class="td"><%= @tea.url %></div>
+    <div class="td">
+      <% if !@tea.url.blank? %>
+        <a href="<%= @tea.url %>" class="lcase" target="_blank"><%= @tea.url.downcase %></a>
+      <% end %>
+    </div>
   </div>
 
   <div class="tr">

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'teas/get_tea_names'
   post 'account/found_username'
   post 'wishlists/save_suggestion'
-  root 'teas#index'
+  root 'info#index'
   
   #get '/about' => 'pages#about'
 

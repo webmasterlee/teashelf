@@ -1,0 +1,13 @@
+<div class="header_info clearfix">
+	<div class="header_left">
+		<a href="/" class="">Tea Shelf</a>
+		<!--<a href="" class="app_link ">Checkbook</a>-->
+	</div>
+	<div class="header_right">
+		<% if user_signed_in? %>
+			<%= link_to 'Teas', teas_path %>
+		<% else %>
+			<%= link_to 'Login', new_user_session_path %>
+		<% end %>
+	</div>
+</div>

@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :check_night_mode
 
+  def after_sign_in_path_for(resource)
+    teas_path
+  end
+
   def check_night_mode
   	if params[:night_mode]
 	  	session[:night_mode] = params[:night_mode]

@@ -23,6 +23,16 @@
       </div>
     </div>
 
+    <div class="tr">
+      <div class="td"><%= f.label "Favorite" %></div>
+      <div class="td top_padding checkboxes">
+        
+        <label><%= f.check_box :favorite %>
+             <!--, @tea.teafinder_atts.include?(att)-->
+            Yes</label><br/>
+      </div>
+    </div>
+
     <% if !@atts.blank? %>
       <div class="tr">
         <div class="td"><%= f.label "Attributes" %></div>

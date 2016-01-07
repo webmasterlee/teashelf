@@ -38,6 +38,14 @@ body.night_mode {
 	background-position: bottom;
 }
 
+.info_body {
+	background-image:url(image_path('hp_bg_hefe.jpg'));
+	background-position: center center;
+	background-attachment: fixed;
+	background-repeat:no-repeat;
+	background-size: cover;
+	}
+
 @media handheld, only screen and (max-width: 767px) {
 	body {
 		background-image:url(image_path('bg_1_med.jpg'));
@@ -144,6 +152,8 @@ h6 {
 	margin-bottom: 35px;
 }
 
+.header_info {padding: 3%;}
+
 .header_left {float:left;width:45%;}
   
 .header_right {float:right;width:55%;text-align:right;margin-top: 10px;font-size: 18px;}
@@ -202,7 +212,7 @@ h6 {
 	input[type="email"], 
 	input[type="number"], 
 	textarea {
-		background-color: #3f3f3f;
+		background-color: rgba(63, 63, 63, 0.8);
 		border:none; 
 		color: white;
 	}
@@ -278,15 +288,58 @@ a.selected {
 	#master_frame_container {padding: 10px;}
 	.header {margin-bottom: 15px;}
 }
+
+/*HOME*/	
+.slide {
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 4% 5%;
+}	
+.slide h1 {color: #f8ff7a;font-size: 40px;text-transform: uppercase;margin-bottom: 3%;}
+.tea_bullet {
+	float: left;
+    margin-right: 1%;
+    width: 20px;
+    padding-top: 5px;
+    }
+.hp_benefit_section {margin-bottom: 4%;}    
+.hp_benefit {color: #f9fdb6;font-size: 30px;float: left;width: 80%;}
+
+a.cta {
+border: 2px solid #ff904c;
+color: #ff904c;
+display: inline-block;
+font-size: 42px;
+font-weight: normal;
+outline: medium none;
+padding: 0.5% 4%;
+text-align: center;
+text-decoration: none;
+text-transform: uppercase;
+-webkit-appearance: none;
+transition: all 0.3s ease-in-out;
+}    
+
+a.cta:hover, a.cta:active {
+background-color: #ff904c;
+border-color: #ff904c;
+color: #fff;
+}
+
+@media handheld, only screen and (max-width:600px) {
 	
- 
+	.slide h1 {font-size: 30px;}
+	.hp_benefit {font-size: 20px;}
+	a.cta {font-size: 30px;}
+	.tea_bullet {padding-top: 0;}
+}
+
 /*GENERIC*/
 .block {display:block;} /*needed to remove whitespace below images, html5 doctype issue*/
 .clear {clear:both;}
 .textmiddle {vertical-align:middle;} /*apply to image*/
 .text_maxwdith {max-width: 650px;}
 .red {color: red;}
-
+.lcase {text-transform: lowercase !important;}
 
 .box {
 	border-top: 4px solid #f8ff7a;
@@ -369,7 +422,7 @@ background-color: #ff904c;
   
 /* CSS TABLES */
 /*when you don't need colspan*/
-.table  {display: table;}
+.table  {display: table;width:100%;}
 .tr {display: table-row;}
 .tr.hide {display: none;}
 .td {display: table-cell;padding: 0 10px 15px 0;}

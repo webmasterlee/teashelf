@@ -10,13 +10,6 @@
     </div>
 
     <div class="tr">
-      <div class="td">Stock</div>
-      <div class="td">
-        <%= select_tag 'tea[stock]', options_for_select([["In","In"],["Out","Out"]], @tea.stock) %>
-      </div>
-    </div>
-
-    <div class="tr">
       <div class="td"><%= f.label :tea_type_id %></div>
       <div class="td">
         <%= select_tag 'tea[tea_type_id]', options_from_collection_for_select(@tea_types, 'id', 'name', @tea.tea_type.nil? ? '' : @tea.tea_type.id), prompt: "Choose...", class: "required" %>
@@ -50,6 +43,17 @@
         <div class="td top_padding">Add your own <%= link_to 'custom attributes', new_att_path %> to better organize and search your teas.</div>
       </div>
     <% end %>
+
+    <div class="tr">
+      <div class="td">Stock</div>
+      <div class="td top_padding">
+        
+        <%= f.radio_button :stock, 'In' %>
+        <%= f.label :stock, 'In', :value => 'In' %><br/>
+        <%= f.radio_button :stock, 'Out' %>
+        <%= f.label :stock, 'Out', :value => 'Out' %>
+      </div>
+    </div>
 
     <div class="tr">
       <div class="td">Vendor</div>

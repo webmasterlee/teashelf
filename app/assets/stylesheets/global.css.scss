@@ -333,6 +333,11 @@ color: #fff;
 	.tea_bullet {padding-top: 0;}
 }
 
+@media handheld, only screen and (max-width:400px) {
+	
+	.slide h1 {font-size: 20px;}
+}
+
 /*GENERIC*/
 .block {display:block;} /*needed to remove whitespace below images, html5 doctype issue*/
 .clear {clear:both;}

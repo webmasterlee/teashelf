@@ -38,13 +38,7 @@ body.night_mode {
 	background-position: bottom;
 }
 
-.info_body {
-	background-image:url(image_path('hp_bg_hefe.jpg'));
-	background-position: center center;
-	background-attachment: fixed;
-	background-repeat:no-repeat;
-	background-size: cover;
-	}
+
 
 @media handheld, only screen and (max-width: 767px) {
 	body {
@@ -289,7 +283,14 @@ a.selected {
 	.header {margin-bottom: 15px;}
 }
 
-/*HOME*/	
+/*HOME*/
+.info_body {
+	background-image:url(image_path('hp_bg_hefe.jpg'));
+	background-position: center center;
+	background-attachment: fixed;
+	background-repeat:no-repeat;
+	background-size: cover;
+	}	
 .slide {
 	background-color: rgba(0, 0, 0, 0.6);
 	padding: 4% 5%;
@@ -336,6 +337,9 @@ color: #fff;
 @media handheld, only screen and (max-width:400px) {
 	
 	.slide h1 {font-size: 20px;}
+	.info_body {
+		background-image:url(image_path('hp_bg_hefe_m.jpg'));
+	}
 }
 
 /*GENERIC*/

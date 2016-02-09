@@ -1,7 +1,7 @@
 <%= form_for @note, html: {class: "required_form_bottom"} do |f| %>
   <%= format_message(@note.errors.full_messages) %>
 
-  <div class="table first_cell_right first_cell_valign">
+  <div class="table first_cell_right first_cell_valign full_width_table">
     <div class="tr">
       <div class="td"><%= f.label :title %></div>
       <div class="td"><%= f.text_field :title, autofocus: true, :class => "required" %></div>

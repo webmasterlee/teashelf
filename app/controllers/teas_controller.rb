@@ -13,7 +13,8 @@ class TeasController < ApplicationController
       @sortType = params[:sortType] == "asc" ? "desc" : "asc" 
     end
     
-    @teas = Tea.teaSort(params, @sortType, current_user.id).order("favorite desc,name")
+    @teas = Tea.teaSort(params, @sortType, current_user.id).order("archive,favorite desc,name")
+
   end
 
   # GET /teas/1
@@ -103,7 +104,7 @@ class TeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tea_params
-      atts = params.require(:tea).permit(:name, :stock, :tea_type_id, :favorite, :vendor, :url, :notes, :att_ids => [])
+      atts = params.require(:tea).permit(:name, :stock, :tea_type_id, :favorite, :archive, :vendor, :url, :notes, :att_ids => [])
       atts[:user_id] = current_user.id
       atts
     end

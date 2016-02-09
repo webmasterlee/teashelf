@@ -157,6 +157,10 @@ $(document).on('page:change', function() {
 	  
 	});
 
+	$('.js_archives').click(function(){
+		$('.archives_section').toggle();
+	});
+
 	$('.js_narrow_by_att').change(function(){
 		var checked = [];
 		
@@ -164,20 +168,14 @@ $(document).on('page:change', function() {
     		checked.push(this.value);
 		});
 		
-		console.log("checked");
-		console.log(checked);
-		
 		//var $divs = $(".list_item");
 		if (checked.length) {
 			$('.list_item').each(function(i, obj) {
 			    var thisAtts = $(this).data("atts");
-			    console.log("thisAtts" + thisAtts);
 			    var matches = [];
 
 			    $.each(checked, function( index, value ) {
-					console.log("value:" + value);
 					if($.inArray(value, thisAtts) > -1){
-						console.log("found " + value );
 						matches.push(value);
 					}
 				});

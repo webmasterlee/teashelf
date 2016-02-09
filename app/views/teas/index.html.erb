@@ -2,6 +2,9 @@
 <% @page_title_extra = image_tag("icon_options2x.png", :class => "options_icon header_icon", :width => 16, :height => 16) %>
 <% @page_title_extra += link_to image_tag("icon_add2x.png", :class => "header_icon", :width => 16, :height => 16), new_tea_path %>
 
+<% archive_section = false %>
+<% archive_link_shown = false %>
+
 <% if @teas.any? %>
 
   <div class="display_options box">
@@ -28,13 +31,26 @@
   </div>
 
   <div class="wrapper">
-    <% @teas.each do |tea| %>
+    <% @teas.each_with_index do |tea, index| %>
+
       
-      <div data-sort_name="<%= tea.name.split(' ').first %>" 
+      <% if tea.archive and !archive_section then archive_section = true end %>
+      
+      <% if archive_section and !archive_link_shown %>
+        <br/>
+        <a href="javascript:;" class="js_archives">Archives</a>
+        <div class="archives_section hide">
+        <% archive_link_shown = true %>
+      <% end %>
+
+      <div
+        <% if !archive_section %>
+          data-sort_name="<%= tea.name.split(' ').first %>" 
           data-sort_type="<%= tea.tea_type.name.split(' ').first %>" 
           data-atts='["<%= tea.atts.map { |att| att.id.to_s.prepend("att_") }.join("\",\"") %>",
                       "tea_type_<%= tea.tea_type.id %>"]'
-          class="list_item clearfix <% if tea.stock == "Out" %>out_of_stock<% end %>">
+        <% end %>
+        class="list_item<% if archive_section %>_archive<% end %> clearfix <% if tea.stock == "Out" %>out_of_stock<% end %>">
         
         <div class="edit_icon">
           <%= link_to image_tag("btn_edit2x.png", :width => 16, :height => 16), edit_tea_path(tea) %>
@@ -60,8 +76,12 @@
             <% if tea.stock == "Out" %><br/>Out of Stock<% end %>
           </div>
         </div>
+      </div><!-- .list_item -->
 
-      </div>
+      <%  if archive_section and index == @teas.size - 1 %> 
+        </div>
+      <% end %>
+
     <% end %>
   </div>
 

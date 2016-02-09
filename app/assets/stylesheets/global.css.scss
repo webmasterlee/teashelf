@@ -431,7 +431,7 @@ background-color: #ff904c;
   
 /* CSS TABLES */
 /*when you don't need colspan*/
-.table  {display: table;width:100%;}
+.table  {display: table;}
 .tr {display: table-row;}
 .tr.hide {display: none;}
 .td {display: table-cell;padding: 0 10px 15px 0;}
@@ -538,7 +538,7 @@ hr {
 }
 
 .favorite {margin-left: 4px;}
-.list_item {margin: 20px 0;}
+.list_item, .list_item_archive {margin: 20px 0;}
 
 .list_item_name {
     margin-bottom: 5px;

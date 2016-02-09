@@ -21,7 +21,6 @@
       <div class="td top_padding checkboxes">
         
         <label><%= f.check_box :favorite %>
-             <!--, @tea.teafinder_atts.include?(att)-->
             Yes</label><br/>
       </div>
     </div>
@@ -52,6 +51,16 @@
         <%= f.label :stock, 'In', :value => 'In' %><br/>
         <%= f.radio_button :stock, 'Out' %>
         <%= f.label :stock, 'Out', :value => 'Out' %>
+      </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"><%= f.label "Archive" %></div>
+      <div class="td top_padding checkboxes">
+        
+        <label><%= f.check_box :archive %>
+            Yes</label>
+            <span class="small">(Archived teas appear at the bottom of the list)</span>
       </div>
     </div>
 

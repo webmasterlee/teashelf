@@ -624,7 +624,7 @@ hr {
 
 /*accordion*/
 .night_mode {
-	.site_accordion_title {background-color: #444;}
+	.site_accordion_title {background-color: rgba(84, 84, 84, 0.7);}
 	.site_accordion_desc {
 		background-color: inherit;
 		border-left: 3px solid #444;
@@ -632,7 +632,7 @@ hr {
 		border-bottom: 3px solid #444;
 	}
 	.site_accordion_title_open {
-		background-color: #444;
+		background-color: rgba(84, 84, 84, 0.7);
 		color: #fff;
 	}
 }	
@@ -642,7 +642,7 @@ hr {
 }
 
 .site_accordion_title {
-	background-color: #FFF2E2;
+	background-color: rgba(248, 241, 232, 0.6);
 	padding: 10px 1.5%;
 	cursor: pointer;
 	transition: background-color 0.5s ease;
@@ -654,7 +654,7 @@ hr {
 }
 
 .site_accordion_title_open {
-	background-color: #FF904C;
+	background-color: rgba(232, 99, 18, 0.75);
 	color: #fff;
 }
 

@@ -1,6 +1,6 @@
 <% @page_title = "Your teas" %>
-<% @page_title_extra = image_tag("icon_options2x.png", :class => "options_icon header_icon", :width => 24, :height => 24) %>
-<% @page_title_extra += link_to image_tag("icon_add2x.png", :class => "header_icon", :width => 24, :height => 24), new_tea_path %>
+<% @page_title_extra = image_tag("icon_options2x.png", :class => "options_icon header_icon", :width => 24, :height => 24, :title => "Filter Teas") %>
+<% @page_title_extra += link_to image_tag("icon_add2x.png", :class => "header_icon", :width => 24, :height => 24,:title => "Add New Tea"), new_tea_path %>
 
 <% archive_section = false %>
 <% archive_link_shown = false %>

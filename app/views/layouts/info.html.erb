@@ -30,6 +30,10 @@
 		<div class="hp_benefit_section">
 			<div class="clearfix">
 				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
+				<div class="hp_benefit"><i>For the connoisseur, the perfectionist and hobbyist.</i></div>
+			</div>
+			<div class="clearfix">
+				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
 				<div class="hp_benefit">You may also discover teas from the community.</div>
 			</div>
 			<div class="clearfix">
@@ -47,21 +51,9 @@
 		<% end %>
 	</div>
 	
-	<div class="page_title_sec">
-		<span class="page_title">
-			<%= @page_title %>
-		</span>
-		<span class="page_title_extra">
-			<%= @page_title_extra %>
-		</span>
+	<div class="footer info_footer">
+		<a href="">Privacy Policy</a> | <a href="">Contact</a>
 	</div>
-
-
-	<div class="content clearfix">
-		<%= yield %>			
-	</div>
-
-	
 
 
 </body>

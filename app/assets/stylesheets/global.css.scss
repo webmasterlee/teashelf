@@ -184,26 +184,21 @@ h6 {
 	display: inline-block;
 	margin: 0 6% 0 0;
 	outline: none;
-	color: #fff;
+	color: #ff725e;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 400;
-	text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	font-size: 22px;
+	padding: 10px 0;
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
 }
 
 .nav a:hover,
 .nav a:focus {
 	outline: none;
-}
-.nav a {
-	padding: 10px 0;
-	color: #fff;
-	text-shadow: none;
-	-webkit-transition: color 0.3s;
-	-moz-transition: color 0.3s;
-	transition: color 0.3s;
 }
 
 .nav a::before,
@@ -212,7 +207,7 @@ h6 {
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background: #fff;
+	background: #ff725e;
 	content: '';
 	opacity: 0;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -239,7 +234,7 @@ h6 {
 
 .nav a:hover,
 .nav a:focus {
-	color: #fff;
+	color: #ff725e;
 }
 
 .nav a:hover::before,
@@ -250,6 +245,21 @@ h6 {
 	-webkit-transform: translateY(0px);
 	-moz-transform: translateY(0px);
 	transform: translateY(0px);
+}
+
+.night_mode {
+	.nav a {color: white;}
+	
+	.nav a:hover,
+	.nav a:focus {
+		color: #fff;
+	}
+
+	.nav a::before,
+	.nav a::after {
+		background: #fff;
+	}
+
 }
 
 @media handheld, only screen and (max-width:445px) {

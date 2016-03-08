@@ -1,6 +1,10 @@
 <div class="header clearfix">
 	<div class="header_left">
-		<a href="/" class=""><%= image_tag("logo_night_2x.png", :width => 207, :height => 72) %></a>
+		<% if session[:night_mode] == "on" %>
+			<a href="/" class=""><%= image_tag("logo_night_2x.png", :width => 207, :height => 72) %></a>
+		<% else %>
+			<a href="/" class=""><%= image_tag("logo_day_2x.png", :width => 207, :height => 72) %></a>
+		<% end %>
 	</div>
 	<div class="header_right">
 		<% if user_signed_in? %>

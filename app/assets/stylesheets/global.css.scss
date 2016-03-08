@@ -248,16 +248,16 @@ h6 {
 }
 
 .night_mode {
-	.nav a {color: white;}
+	.nav a {color: #f8ff7a;}
 	
 	.nav a:hover,
 	.nav a:focus {
-		color: #fff;
+		color: #f8ff7a;
 	}
 
 	.nav a::before,
 	.nav a::after {
-		background: #fff;
+		background: #f8ff7a;
 	}
 
 }

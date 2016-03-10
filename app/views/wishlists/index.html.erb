@@ -12,7 +12,8 @@
         <div class="list_item_name"><%= link_to wishlist.name, wishlist %></div>
         <div class="list_item_atts">
           <% if !wishlist.url.blank? %>
-            <%= wishlist.url %><br/>
+            <a href="<%= wishlist.url %>" class="lcase break_text" target="_blank"><%= wishlist.url.downcase %></a>
+            <br/>
           <% end %>
           <%= wishlist.notes %>
         </div>

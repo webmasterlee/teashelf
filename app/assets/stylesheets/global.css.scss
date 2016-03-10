@@ -249,8 +249,6 @@ h6 {
 	color: #ff725e;
 }
 
-
-
 .night_mode {
 	.nav a {color: #f8ff7a;}
 	
@@ -259,11 +257,9 @@ h6 {
 		color: #f8ff7a;
 	}
 
-	.no_touchevents {
-		.nav a::before,
-		.nav a::after {
-			background: #f8ff7a;
-		}
+	.no_touchevents & .nav a::before,
+	.no_touchevents	& .nav a::after {
+		background: #f8ff7a;
 	}
 }
 
@@ -458,6 +454,11 @@ color: #fff;
 .text_maxwdith {max-width: 650px;}
 .red {color: red;}
 .lcase {text-transform: lowercase !important;}
+.break_text {
+	word-break: break-word;
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+  }
 
 .box {
 	border-top: 4px solid #f8ff7a;

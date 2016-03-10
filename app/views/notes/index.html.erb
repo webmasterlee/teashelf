@@ -5,9 +5,9 @@
   <% @notes.each do |note| %>
 
     <div class="list_item clearfix">
-      <div class="edit_icon">
-        <%= link_to image_tag("btn_edit2x.png", :width => 16, :height => 16), edit_note_path(note) %>
-      </div>
+      <!-- <div class="edit_icon">
+        <%# link_to image_tag("btn_edit2x.png", :width => 16, :height => 16), edit_note_path(note) %>
+      </div> -->
       <div class="list_item_details">
         <div class="list_item_name"><%= link_to note.title, note %></div>
         <div class="list_item_atts text_maxwdith">

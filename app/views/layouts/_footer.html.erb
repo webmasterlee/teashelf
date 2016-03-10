@@ -3,8 +3,11 @@
 		<%= link_to 'Types', tea_types_path %> 
 		<span>|</span>
 	<% end %>
-	<%= link_to 'Attributes', atts_path %>
-	<span>|</span>
+
+	<% if user_signed_in? %>
+		<%= link_to 'Attributes', atts_path %>		
+		<span>|</span>
+	<% end %>
 	
 	<% if session[:night_mode] == "on" %>
 		<a href="?night_mode=off">Day Mode</a>

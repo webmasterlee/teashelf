@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all.order(created_at: :desc)
+    @notes = Note.where(:user_id => current_user.id).order(created_at: :desc)
   end
 
   # GET /notes/1

@@ -1,44 +1,49 @@
 <% @page_title = "Tea Chooser" %>
 
-<div class="box">
-  <% if @tea.nil? %>
-    <h1>Your search produced no results.</h1>  
-  <% else %>
-    <h1>Today you should drink some <b><%= link_to @tea.name, @tea, :class => "random_tea" %></b></h1>
-  <% end %>
-</div>
+<% if @totalTeas > 0 %>
 
-<br/><br/><br/>
+  <div class="box">
+    <% if @tea.nil? %>
+      <h1>Your search produced no results.</h1>  
+    <% else %>
+      <h1>Today you should drink some <b><%= link_to @tea.name, @tea, :class => "random_tea" %></b></h1>
+    <% end %>
+  </div>
 
-<b>Would you like to filter the suggestions?</b><br/><br/>
+  <br/><br/><br/>
 
-<form action="<%= teas_random_path %>" method="get">
+  <b>Would you like to filter the suggestions?</b><br/><br/>
 
-  <div class="table first_cell_right first_cell_valign">
-    <div class="tr">
-      <div class="td">Type</div>
-      <div class="td top_padding">
-        <% @tea_types.each do |type| %>
-          <label><input type="checkbox" name="tea_type_id[]" value="<%= type.id %>"> <%= type.name %></label><br/>
-        <% end %>
-       </div>
-    </div>
+  <form action="<%= teas_random_path %>" method="get">
 
-    <% if !@atts.blank? %>
+    <div class="table first_cell_right first_cell_valign">
       <div class="tr">
-        <div class="td">Attributes</div>
-        <div class="td top_padding checkboxes">
-           <% @atts.each do |att| %>
-            <label><input type="checkbox" name="att_id[]" value="<%= att.id %>"> <%= att.name %></label><br/>
+        <div class="td">Type</div>
+        <div class="td top_padding">
+          <% @tea_types.each do |type| %>
+            <label><input type="checkbox" name="tea_type_id[]" value="<%= type.id %>"> <%= type.name %></label><br/>
           <% end %>
          </div>
       </div>
-    <% end %>
 
-    <div class="tr">
-      <div class="td"></div>
-      <div class="td"><%= submit_tag "Generate Random Tea", :name => nil, :class => "btn" %></div>
+      <% if !@atts.blank? %>
+        <div class="tr">
+          <div class="td">Attributes</div>
+          <div class="td top_padding checkboxes">
+             <% @atts.each do |att| %>
+              <label><input type="checkbox" name="att_id[]" value="<%= att.id %>"> <%= att.name %></label><br/>
+            <% end %>
+           </div>
+        </div>
+      <% end %>
+
+      <div class="tr">
+        <div class="td"></div>
+        <div class="td"><%= submit_tag "Generate Random Tea", :name => nil, :class => "btn" %></div>
+      </div>
     </div>
-  </div>
 
-</form>
+  </form>
+<% else %>
+  No teas added yet.<br/>
+<% end %>

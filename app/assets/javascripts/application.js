@@ -14,6 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
+$(document).on('ready page:load', function () {
+	if (supportsTouch) {
+		$("html").addClass("touchevents");
+	} else {
+		$("html").addClass("no_touchevents");
+	}
+});	
+
 $(document).on('click','.site_accordion_title', function() {  
 	$this = $(this);
 	if ($this.next(".site_accordion_desc").is(":hidden")) {	

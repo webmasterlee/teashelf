@@ -4,7 +4,7 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-    @wishlists = Wishlist.all
+    @wishlists = Wishlist.where(:user_id => current_user.id)
   end
 
   # GET /wishlists/1

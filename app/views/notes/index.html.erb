@@ -1,5 +1,5 @@
 <% @page_title = "Notes" %>
-<% @page_title_extra = link_to image_tag("icon_add2x.png", :class => "header_icon", :width => 16, :height => 16), new_note_path %>
+<% @page_title_extra = link_to image_tag("icon_add2x.png", :class => "header_icon", :width => 24, :height => 24, :title => "Add New Note"), new_note_path %>
 
 <% if @notes.any? %>
   <% @notes.each do |note| %>

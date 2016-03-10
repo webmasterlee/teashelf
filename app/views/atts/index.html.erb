@@ -1,4 +1,6 @@
 <% @page_title = "Tea Attributes" %>
+<% @page_title_extra = link_to image_tag("icon_add2x.png", :class => "header_icon", :width => 24, :height => 24, :title => "Add New Attribute"), new_att_path %>
+
 
 <% if @atts.any? %>
   <table class="table_spacing">

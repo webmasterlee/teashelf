@@ -1,4 +1,5 @@
 <% @page_title = "Your Wishlist" %>
+<% @page_title_extra = link_to image_tag("icon_add2x.png", :class => "header_icon", :width => 24, :height => 24, :title => "Add New Wish"), new_wishlist_path %>
 
 <% if @wishlists.any? %>
   <% @wishlists.each do |wishlist| %>

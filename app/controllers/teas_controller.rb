@@ -36,6 +36,7 @@ class TeasController < ApplicationController
   end
 
   def random
+    @totalTeas = Tea.where(:user_id => current_user.id).count
     @tea = Tea.search(params, current_user.id)
   end
 

@@ -201,35 +201,47 @@ h6 {
 	outline: none;
 }
 
-.nav a::before,
-.nav a::after {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background: #ff725e;
-	content: '';
-	opacity: 0;
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-	-webkit-transform: translateY(-10px);
-	-moz-transform: translateY(-10px);
-	transform: translateY(-10px);
-}
+.no_touchevents {
+	.nav a::before,
+	.nav a::after {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: #ff725e;
+		content: '';
+		opacity: 0;
+		-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+		-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+		transition: opacity 0.3s, transform 0.3s;
+		-webkit-transform: translateY(-10px);
+		-moz-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
 
-.nav a::before {
-	top: 0;
-	-webkit-transform: translateY(-10px);
-	-moz-transform: translateY(-10px);
-	transform: translateY(-10px);
-}
+	.nav a::before {
+		top: 0;
+		-webkit-transform: translateY(-10px);
+		-moz-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
 
-.nav a::after {
-	bottom: 0;
-	-webkit-transform: translateY(10px);
-	-moz-transform: translateY(10px);
-	transform: translateY(10px);
+	.nav a::after {
+		bottom: 0;
+		-webkit-transform: translateY(10px);
+		-moz-transform: translateY(10px);
+		transform: translateY(10px);
+	}
+
+	.nav a:hover::before,
+	.nav a:focus::before,
+	.nav a:hover::after,
+	.nav a:focus::after {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		-moz-transform: translateY(0px);
+		transform: translateY(0px);
+	}
 }
 
 .nav a:hover,
@@ -237,15 +249,7 @@ h6 {
 	color: #ff725e;
 }
 
-.nav a:hover::before,
-.nav a:focus::before,
-.nav a:hover::after,
-.nav a:focus::after {
-	opacity: 1;
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	transform: translateY(0px);
-}
+
 
 .night_mode {
 	.nav a {color: #f8ff7a;}
@@ -255,11 +259,12 @@ h6 {
 		color: #f8ff7a;
 	}
 
-	.nav a::before,
-	.nav a::after {
-		background: #f8ff7a;
+	.no_touchevents {
+		.nav a::before,
+		.nav a::after {
+			background: #f8ff7a;
+		}
 	}
-
 }
 
 @media handheld, only screen and (max-width:445px) {

@@ -11,7 +11,7 @@
       <div class="list_item_details">
         <div class="list_item_name"><%= link_to note.title, note %></div>
         <div class="list_item_atts text_maxwdith">
-          <div class="limit_text">
+          <div class="limit_text break_text">
             <%= simple_format truncate(note.body, length: 300, separator: ' ') %>
           </div>
         </div>

@@ -72,10 +72,10 @@ class TeasController < ApplicationController
 
   # DELETE /teas/1
   # DELETE /teas/1.json
-  def destroy
+  def destroy    
     @tea.destroy
     respond_to do |format|
-      format.html { redirect_to teas_url, notice: 'Tea was successfully destroyed.' }
+      format.html { redirect_to teas_url, notice: 'Tea was successfully deleted.' }
       format.json { head :no_content }
     end
   end

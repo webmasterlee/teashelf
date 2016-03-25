@@ -4,6 +4,8 @@ ruby "2.2.4"
 
 gem 'pg'
 
+#gem 'figaro' #for secret keys
+
 gem 'quiet_assets', group: :development
 
 #for heroku

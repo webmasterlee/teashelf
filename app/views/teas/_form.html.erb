@@ -47,7 +47,11 @@
       <div class="td">Stock</div>
       <div class="td top_padding">
         
-        <%= f.radio_button :stock, 'In' %>
+        <% if @tea.id.nil? %>
+          <%= f.radio_button :stock, 'In', :checked => true %>
+        <% else %>
+          <%= f.radio_button :stock, 'In' %>
+        <% end %>
         <%= f.label :stock, 'In', :value => 'In' %><br/>
         <%= f.radio_button :stock, 'Out' %>
         <%= f.label :stock, 'Out', :value => 'Out' %>

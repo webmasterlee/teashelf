@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <b>Name:</b><br/>
+    <%= @form_params.name %>
+    <br/><br/>
+
+  	<b>Email:</b><br/>
+    <%= @form_params.email %>    
+    <br/><br/>
+
+    <b>Subject:</b><br/>
+    <%= @form_params.subject %>
+    <br/><br/>
+
+    <b>Message:</b><br/>
+    <%= simple_format @form_params.message %>
+  </body>
+</html>

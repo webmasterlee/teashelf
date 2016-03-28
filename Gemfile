@@ -4,7 +4,9 @@ ruby "2.2.4"
 
 gem 'pg'
 
-#gem 'figaro' #for secret keys
+gem 'figaro' #for secret keys
+
+gem 'exception_notification'
 
 gem 'quiet_assets', group: :development
 

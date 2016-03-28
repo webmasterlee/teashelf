@@ -1,0 +1,27 @@
+<% @page_title = "Contact" %>
+
+<%= form_for @contact, html: {class: "required_form_bottom"}, url: contact_path do |f| %>
+
+<div class="contact_form">
+	<div class="contact_input">
+		<%= f.text_field :name, placeholder: "Name", autofocus: true, :class => "required" %>
+	</div>
+
+	<div class="contact_input">
+		<%= f.text_field :email, placeholder: "Email" %>
+	</div>
+
+	<div class="contact_input">
+		<%= f.text_field :subject, placeholder: "Subject", :class => "required" %>
+	</div>
+
+	<div class="contact_input">
+		<%= f.text_area :message, placeholder: "Message", :class => "required"%>
+	</div>
+
+	<div class="contact_input">
+		<%= f.submit "Send", :class => "btn" %>
+	</div>
+</div>
+
+<% end %>

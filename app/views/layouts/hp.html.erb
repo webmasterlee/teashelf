@@ -10,6 +10,7 @@
 	<link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
+
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -22,48 +23,48 @@
 	</script>
 </head>
 
-<body <% if session[:night_mode] == "on" %>class="night_mode"<% end %>>
+<body class="info_body">
 	<% if Rails.env.production? %>
 	  <script>ga('send', 'pageview');</script>
 	<% end %>
+
 	<!--<div class='sidebar'>
 		<%# render 'layouts/teafinder/header' %>
 	</div>-->
 
-	<div id="master_frame_container">
 			
-		<!--<a href="javascript:;" class='menu_button'><%# image_tag "btn_menu.png" %></a>-->
+	<!--<a href="javascript:;" class='menu_button'><%# image_tag "btn_menu.png" %></a>-->
 
-			<%= render 'layouts/header' %>
-		
-		<% if !request.fullpath.include? "user" %>
-			<%= render 'layouts/nav' %>
-		<% end 	%>
+	<%= render 'layouts/header_info' %>
+	
+	<div class="slide">
+		<h1>A place to catalog, organize,<br/> 
+		and search your teas.</h1>
 
-		<div class="page_title_sec">
-			<span class="page_title">
-				<%= @page_title %>
-			</span>
-			<span class="page_title_extra">
-				<%= @page_title_extra %>
-			</span>
+		<div class="hp_benefit_section">
+			<div class="clearfix">
+				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
+				<div class="hp_benefit">For the connoisseur, perfectionist, and hobbyist.</div>
+			</div>
+			<div class="clearfix">
+				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
+				<div class="hp_benefit">You may also discover teas from the community.</div>
+			</div>
+			<div class="clearfix">
+				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
+				<div class="hp_benefit">See how others steep your tea.</div>
+			</div>
 		</div>
 
-		<% if notice %>
-			<%= format_message(notice,"success") %>
+		<% if !user_signed_in? %>
+			<a href="<%= new_user_registration_path %>" class="cta">Sign up</a>
 		<% end %>
-		
-		<% if alert %>
-		  <%= format_message(alert) %>
-		<% end %>
-
-		<div class="content clearfix">
-			<%= yield %>			
-		</div>
-
-		<%= render 'layouts/footer' %>
-
 	</div>
+	
+	<div class="footer info_footer">
+		<a href="">Privacy Policy</a> | <a href="">Contact</a>
+	</div>
+
 
 </body>
 </html>

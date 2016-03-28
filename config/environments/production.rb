@@ -75,4 +75,25 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => ENV["mail_server_address"],
+    :port => ENV["mail_port"],
+    :domain => ENV["mail_domain"],
+    :user_name => ENV["mail_user_name"],
+    :password => ENV["mail_password"]
+  }
+
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+    :delivery_method => :smtp,
+    :deliver_with => :deliver,
+    :email_prefix => "Error: ",
+    :sender_address => "Tea Logger Errors <#{ENV["mail_from_email"]}>",
+    :exception_recipients => ENV["my_email"]
+  }
 end

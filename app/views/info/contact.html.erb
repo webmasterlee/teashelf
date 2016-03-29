@@ -1,3 +1,5 @@
+
+
 <% @page_title = "Contact" %>
 
 <%= form_for @contact, html: {class: "required_form_bottom"}, url: contact_path do |f| %>
@@ -17,6 +19,10 @@
 
 	<div class="contact_input">
 		<%= f.text_area :message, placeholder: "Message", :class => "required"%>
+	</div>
+
+	<div class="contact_input">
+		<%= recaptcha_tags %>
 	</div>
 
 	<div class="contact_input">

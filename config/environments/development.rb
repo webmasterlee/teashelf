@@ -47,12 +47,12 @@ Rails.application.configure do
     :password => ENV["mail_password"]
   }
 
-  config.middleware.use ExceptionNotification::Rack,
-    :email => {
-    :delivery_method => :smtp,
-    :deliver_with => :deliver,
-    :email_prefix => "Error: ",
-    :sender_address => "Tea Logger Errors <#{ENV["mail_from_email"]}>",
-    :exception_recipients => ENV["my_email"]
-  }
+  #config.middleware.use ExceptionNotification::Rack,
+    #:email => {
+    #:delivery_method => :smtp,
+    #:deliver_with => :deliver,
+    #:email_prefix => "Error: ",
+    #:sender_address => "Tea Logger Errors <#{ENV["mail_from_email"]}>",
+    #:exception_recipients => ENV["my_email"]
+  #}
 end

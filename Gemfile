@@ -4,6 +4,8 @@ ruby "2.2.4"
 
 gem 'pg'
 
+gem "recaptcha", require: "recaptcha/rails"
+
 gem 'figaro' #for secret keys
 
 gem 'exception_notification'

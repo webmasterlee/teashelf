@@ -19,12 +19,12 @@ class InfoController < ApplicationController
       redirect_to contact_path, notice: "Your messages has been sent."
     else
       if !captcha
-        flash[:alert] = @contact.errors.full_messages.push("Robot test failed.")
+        flash[:alert] = @contact.errors.full_messages.push("Sorry you didn't pass the Robot test.")
       else
         flash[:alert] = @contact.errors.full_messages  
       end 
 
-      render :contact 
+      redirect_to :contact 
     end
   end
 

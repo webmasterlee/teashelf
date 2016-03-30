@@ -1,5 +1,21 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
 
+  def create
+
+  #build_resource(sign_up_params)
+
+    if verify_recaptcha(model: resource)
+      super
+    else
+      build_resource
+      clean_up_passwords(resource)
+      flash[:alert] = "Sorry you didn't pass the Robot test."
+      redirect_to new_user_registration_path
+    end
+  end
+
+
+
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)

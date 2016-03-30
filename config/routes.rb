@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'wishlists/save_suggestion'
   root 'info#index'
   
+  get 'legal', to: 'info#legal'
   get 'contact', to: 'info#contact', as: 'contact'
   post 'contact', to: 'info#contact_send'
   #get '/about' => 'pages#about'

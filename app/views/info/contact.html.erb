@@ -1,8 +1,28 @@
+<script type="text/javascript">
 
+$(document).ready(function() {   
+
+	$(".js_contact_form").validate({
+		errorElement: "div",
+		ignore: ".ignore",
+		rules: {
+			"hiddenRecaptcha": {
+				required: function() {
+					if(grecaptcha.getResponse() == '') {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+		}
+	});
+});
+</script>
 
 <% @page_title = "Contact" %>
 
-<%= form_for @contact, html: {class: "required_form_bottom"}, url: contact_path do |f| %>
+<%= form_for @contact, html: {class: "js_contact_form"}, url: contact_path do |f| %>
 
 <div class="contact_form">
 	<div class="contact_input">
@@ -22,7 +42,8 @@
 	</div>
 
 	<div class="contact_input">
-		<%= recaptcha_tags %>
+		<%= recaptcha_tags :callback => "captcha_cb", :onload => "captcha_load" %>
+		<input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
 	</div>
 
 	<div class="contact_input">

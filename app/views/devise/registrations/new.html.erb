@@ -1,6 +1,28 @@
+<script type="text/javascript">
+
+$(document).ready(function() {   
+
+	$(".js_sign_up_form").validate({
+		errorElement: "div",
+		ignore: ".ignore",
+		rules: {
+			"hiddenRecaptcha": {
+				required: function() {
+					if(grecaptcha.getResponse() == '') {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+		}
+	});
+});
+</script>
+
 <% @page_title = "Sign up" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "required_form_bottom" }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "js_sign_up_form" }) do |f| %>
 	<%= format_message(devise_error_messages!) %>
 
 	<div class="table first_cell_valign first_cell_right full_width_table_on_mobile">
@@ -30,7 +52,10 @@
 
 		<div class="tr">
 			<div class="td"></div>
-			<div class="td"><%= recaptcha_tags %></div>
+			<div class="td">
+				<%= recaptcha_tags %>
+				<input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
+			</div>
 		</div>
 
 		<div class="tr">

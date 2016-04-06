@@ -29,7 +29,7 @@ $(document).ready(function() {
 		<div class="tr">
 	    	<div class="td"><%= f.label :username %></div>
 	    	<div class="td">
-	    		<%= f.text_field :username, autofocus: true, maxlength: 20, :class => "required js_username", 'data-current_username'=> '' %>
+	    		<%= f.text_field :username, autofocus: true, placeholder: "4 or more characters", maxlength: 20, :class => "required js_username", 'data-current_username'=> '' %>
 	    		<div class="red hide" id="username_error">Sorry, that username is taken. Please try again.</div>
                 <div class="hide" id="username_success">Username is available.</div>
 	    	</div>
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 		<div class="tr">
 			<div class="td"><%= f.label :password %></div>
-			<div class="td"><%= f.password_field :password, autocomplete: "off", :class => "required" %></div>
+			<div class="td"><%= f.password_field :password, placeholder: "8 or more characters",autocomplete: "off", :class => "required" %></div>
 		</div>
 
 		<div class="tr">

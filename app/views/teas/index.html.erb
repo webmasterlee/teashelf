@@ -85,7 +85,7 @@
     <% end %>
   </div>
 
-  <br/><br/>You have <%= @teas.count %> total teas.
+  <br/><br/>You have <%= pluralize(@totalTeas, 'tea') %> in stock.
 <% else %>
   No teas added yet.<br/>
 <% end %>

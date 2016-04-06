@@ -14,7 +14,7 @@ class TeasController < ApplicationController
     end
     
     @teas = Tea.teaSort(params, @sortType, current_user.id).order("archive,favorite desc,name")
-
+    @totalTeas = @teas.where(:stock => "In").count
   end
 
   # GET /teas/1

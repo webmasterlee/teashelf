@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :check_night_mode
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+  
 
   def after_sign_in_path_for(resource)
     teas_path
@@ -24,5 +27,14 @@ class ApplicationController < ActionController::Base
   	if params[:night_mode]
 	  	session[:night_mode] = params[:night_mode]
 	   end
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    #http://www.rubydoc.info/github/plataformatec/devise/Devise/ParameterSanitizer
+    #http://stackoverflow.com/questions/34510155/cant-add-custom-fields-to-devise-model-in-ruby-on-rails-private-method-error
+    devise_parameter_sanitizer.for(:account_update) << :username ## add the attributes you want to permit
+    #devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 end

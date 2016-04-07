@@ -38,7 +38,9 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     else
       set_night_mode
       clean_up_passwords resource
-      respond_with resource
+      #respond_with resource, location: after_update_path_for(resource)
+      flash[:alert] = resource.errors.full_messages 
+      redirect_to edit_user_registration_path
     end
   end
 
@@ -50,23 +52,23 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
-  def account_update_params
-    if params[:user][:password].present? || params[:user][:password_confirmation].present? || params[:user][:current_password].present?
-      devise_parameter_sanitizer.sanitize(:account_update)
-    else
-      params.require(:user).permit(:username, :email)
-    end
-  end
+
+
 
   protected
 
+=begin
   def update_resource(resource, params)
-    if params[:password].present? || params[:password_confirmation].present? || params[:current_password].present?
+    if params[:password].present? && params[:password_confirmation].present? || params[:current_password].present?
       resource.update_with_password(params)
     else
+      params.delete :password
+      params.delete :password_confirmation
+      params.delete :current_password
       resource.update_without_password(params)
     end
   end
+=end
 
   def after_update_path_for(resource)
     edit_user_registration_path

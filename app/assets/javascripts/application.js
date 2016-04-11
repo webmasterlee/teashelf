@@ -17,6 +17,10 @@
 
 var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
+$(document).on('page:change', function() {
+  ga('send', 'pageview', window.location.pathname);
+});
+
 $(document).on('ready page:load', function () {
 	if (supportsTouch) {
 		$("html").addClass("touchevents");

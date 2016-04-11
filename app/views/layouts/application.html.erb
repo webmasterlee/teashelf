@@ -15,7 +15,7 @@
 
 <body <% if session[:night_mode] == "on" %>class="night_mode"<% end %>>
 	<% if Rails.env.production? %>
-	  <script>ga('send', 'pageview');</script>
+	  <script>//ga('send', 'pageview');</script>
 	<% end %>
 	<!--<div class='sidebar'>
 		<%# render 'layouts/teafinder/header' %>

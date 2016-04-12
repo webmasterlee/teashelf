@@ -12,6 +12,8 @@ gem 'exception_notification'
 
 gem 'quiet_assets', group: :development
 
+gem 'tzinfo-data', group: :development #needed to run on windows
+
 #for heroku
 gem 'puma'
 

@@ -1,0 +1,18 @@
+
+
+<div class="splash">
+	<div class="header_info clearfix">
+		<div class="header_left">
+			<a href="/" class=""><%= image_tag("logo_yellow_2x.png", :width => 197, :height => 72) %></a>
+		</div>
+		<div class="header_right info_header_link">
+			<% if user_signed_in? %>
+				<%= link_to 'Teas', teas_path %>
+			<% else %>
+				<%= link_to 'Login', new_user_session_path %>
+			<% end %>
+		</div>
+	</div>
+	
+	<h1>A place to catalog, organize, <span>and search your teas.</span></h1>
+</div>

@@ -25,31 +25,34 @@
 			
 	<!--<a href="javascript:;" class='menu_button'><%# image_tag "btn_menu.png" %></a>-->
 
-	<%= render 'layouts/header_info' %>
+	<%= render 'layouts/header_hp' %>
 	
-	<div class="slide">
-		<h1>A place to catalog, organize,<br/> 
-		and search your teas.</h1>
+	<div class="hp_benefit_section">
+		<div class="benefit_container">
+			<h2>For the connoisseur, perfectionist, and hobbyist.</h2>
 
-		<div class="hp_benefit_section">
-			<div class="clearfix">
+			<div class="hp_benefit_item">
 				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
 				<div class="hp_benefit">For the connoisseur, perfectionist, and hobbyist.</div>
 			</div>
-			<div class="clearfix">
+			<div class="hp_benefit_item">
 				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
 				<div class="hp_benefit">You may also discover teas from the community.</div>
 			</div>
-			<div class="clearfix">
+			<div class="hp_benefit_item">
 				<div class="tea_bullet"><%= image_tag("bullet_tea2x.png", :width => 16, :height => 16) %></div>
 				<div class="hp_benefit">See how others steep your tea.</div>
 			</div>
-		</div>
 
-		<% if !user_signed_in? %>
-			<a href="<%= new_user_registration_path %>" class="cta">Sign up</a>
-		<% end %>
+			<% if !user_signed_in? %>
+				<div class="hp_signup">
+					<a href="<%= new_user_registration_path %>" class="cta">Sign up</a>
+				</div>
+			<% end %>
+		</div>
 	</div>
+
+	
 	
 	<div class="footer info_footer">
 		<a href="/legal">Privacy &amp; Terms</a> | <a href="/contact">Contact</a>

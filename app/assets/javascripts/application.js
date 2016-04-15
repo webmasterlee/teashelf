@@ -17,11 +17,13 @@
 
 var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
-$(document).on('page:change', function() {
+//$(document).on('page:change', function() {
+document.addEventListener("turbolinks:load", function() {
   ga('send', 'pageview', window.location.pathname);
+
 });
 
-$(document).on('ready page:load', function () {
+document.addEventListener("turbolinks:load", function() {	
 	if (supportsTouch) {
 		$("html").addClass("touchevents");
 	} else {
@@ -122,8 +124,60 @@ $(document).on('blur keyup','.js_username', function() {
 	}
 });
 
-$(document).on('page:change', function() {
+/*
+$(document).on('click','.js_sort', function() {  
+//$('.js_sort').click(function(){
+	var sort_type = $('input[name=sort]:checked').val();
+	var $divs = $(".list_item");
+
+	if (sort_type == "name") {
+		sortByDataAtt(".wrapper", $divs, "sort_name");
+	} else if (sort_type == "tea_type") {
+		sortByDataAtt(".wrapper", $divs, "sort_type");
+	}
+  
+});
+*/
+$(document).on('click','.js_archives', function() {  
+//$('.js_archives').click(function(){
+	$('.archives_section').toggle();
+});
+
+$(document).on('change','.js_narrow_by_att', function() {  
+//$('.js_narrow_by_att').change(function(){
+	var checked = [];
 	
+	$("input[name=att]:checked").map(function() {
+		checked.push(this.value);
+	});
+	
+	//var $divs = $(".list_item");
+	if (checked.length) {
+		$('.list_item').each(function(i, obj) {
+		    var thisAtts = $(this).data("atts");
+		    var matches = [];
+
+		    $.each(checked, function( index, value ) {
+				if($.inArray(value, thisAtts) > -1){
+					matches.push(value);
+				}
+			});
+
+			if (checked.length == matches.length) {
+				$(this).css("display","block");
+			} else {
+				$(this).css("display","none");
+			}
+		});
+	} else {
+		$('.list_item').each(function(i, obj) {
+			$(this).css("display","block");
+		});
+	}
+});
+
+//$(document).on('page:change', function() {
+document.addEventListener("turbolinks:load", function() {	
 	/*$('.tea_form').submit(function(){
 		console.log($('#tea_name').val());
 		if ($('#tea_name').val() == '') {
@@ -160,53 +214,7 @@ $(document).on('page:change', function() {
 	// can only be one of these on page
 	$(".required_form_bottom").validate({errorElement: "div"});
 
-	$('.js_sort').click(function(){
-		var sort_type = $('input[name=sort]:checked').val();
-		var $divs = $(".list_item");
-
-		if (sort_type == "name") {
-			sortByDataAtt(".wrapper", $divs, "sort_name");
-		} else if (sort_type == "tea_type") {
-			sortByDataAtt(".wrapper", $divs, "sort_type");
-		}
-	  
-	});
-
-	$('.js_archives').click(function(){
-		$('.archives_section').toggle();
-	});
-
-	$('.js_narrow_by_att').change(function(){
-		var checked = [];
-		
-		$("input[name=att]:checked").map(function() {
-    		checked.push(this.value);
-		});
-		
-		//var $divs = $(".list_item");
-		if (checked.length) {
-			$('.list_item').each(function(i, obj) {
-			    var thisAtts = $(this).data("atts");
-			    var matches = [];
-
-			    $.each(checked, function( index, value ) {
-					if($.inArray(value, thisAtts) > -1){
-						matches.push(value);
-					}
-				});
-
-				if (checked.length == matches.length) {
-					$(this).css("display","block");
-				} else {
-					$(this).css("display","none");
-				}
-			});
-		} else {
-			$('.list_item').each(function(i, obj) {
-				$(this).css("display","block");
-			});
-		}
-	});
+	
 });
 
 /*

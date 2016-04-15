@@ -412,7 +412,7 @@ a.selected {
     font-size: 80px;
     margin: 0 3% 0 10%;
     text-transform: uppercase;
-    width: 70%;
+    
     /*text-shadow: 0px 3px 0px #b2a98f,
              0px 14px 10px rgba(0,0,0,0.15),
              0px 24px 2px rgba(0,0,0,0.1),
@@ -427,6 +427,27 @@ a.selected {
 	text-shadow: 0 5px 1px rgba(0, 0, 0, 0.9);
 }
 
+@media handheld, only screen and (max-width:1250px) {
+	.splash h1 {font-size: 70px;}
+}
+@media handheld, only screen and (max-width:1100px) {
+	.splash h1 {font-size: 60px;}
+}
+@media handheld, only screen and (max-width:950px) {
+	.splash h1 {font-size: 50px;}
+}
+@media handheld, only screen and (max-width:800px) {
+	.splash h1 {font-size: 40px;}
+}
+@media handheld, only screen and (max-width:650px) {
+	.splash h1 {font-size: 30px;}
+}
+@media handheld, only screen and (max-width:490px) {
+	.splash h1 {font-size: 25px;}
+}
+@media handheld, only screen and (max-width:400px) {
+	.splash h1 {font-size: 20px;}
+}
 .info_body {background-image:none; }
 /*.info_body {
 	background-image:url(image_path('hp_bg_hefe.jpg'));
@@ -444,10 +465,9 @@ a.selected {
 .tea_bullet {
 	float: left;
     margin-right: 1%;
-    width: 20px;
+    width: 5%;
     padding-top: 5px;
     }
-.hp_benefit {font-size: 40px;float: left;width: 80%;}
 
 .hp_benefit_section {
 	background-image:url(image_path('master-about-image-section.jpg'));
@@ -462,12 +482,25 @@ a.selected {
 }
 .benefit_container {
 	margin:0 auto;
-	width: 960px;
+	max-width: 960px;
+	width: 80%;
 }
-
+.hp_benefit {font-size: 40px;float: left;width: 93%;}
 .hp_benefit_section h2 {text-transform: uppercase;margin-bottom: 40px;}
 .hp_benefit_item {margin-bottom: 15px;@extend .clearfix;}
 .hp_signup {text-align: center;margin-top: 5%;}
+
+@media handheld, only screen and (max-width:1220px) {
+	.benefit_container {width: 100%;}
+}
+@media handheld, only screen and (max-width:870px) {
+	.hp_benefit_section h2, .hp_benefit {font-size: 30px;}
+}
+@media handheld, only screen and (max-width:680px) {
+	.hp_benefit_section h2, .hp_benefit {font-size: 20px;}	
+	.hp_signup {text-align: left;}
+}
+
 a.cta {
 border: 2px solid #fff;
 color: #fff;
@@ -500,9 +533,6 @@ color: #fff;
 @media handheld, only screen and (max-width:400px) {
 	
 	.slide h1 {font-size: 20px;}
-	.info_body {
-		background-image:url(image_path('hp_bg_hefe_m.jpg'));
-	}
 }
 
 /*GENERIC*/

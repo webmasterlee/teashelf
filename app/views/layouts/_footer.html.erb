@@ -1,17 +1,23 @@
-<div class="footer">
-	<% if current_user.try(:admin?) %>
-		<%= link_to 'Types', tea_types_path %> 
-		<span>|</span>
+<div class="footer <% if current_page?('/') %>content_middle<% end %>">
+	
+	<% if !current_page?('/') %>
+		<% if current_user.try(:admin?) %>
+			<%= link_to 'Types', tea_types_path %> 
+			<span>|</span>
+		<% end %>
+
+		<% if user_signed_in? %>
+			<%= link_to 'Attributes', atts_path %>		
+			<span>|</span>
+		<% end %>
+		
+		<% if session[:night_mode] == "on" %>
+			<a href="?night_mode=off">Day Mode</a>
+		<% elsif %>
+			<a href="?night_mode=on">Night Mode</a>	
+		<% end %>
+		<br/><br/><br/>
 	<% end %>
 
-	<% if user_signed_in? %>
-		<%= link_to 'Attributes', atts_path %>		
-		<span>|</span>
-	<% end %>
-	
-	<% if session[:night_mode] == "on" %>
-		<a href="?night_mode=off">Day Mode</a>
-	<% elsif %>
-		<a href="?night_mode=on">Night Mode</a>	
-	<% end %>
+	<div class="de_emphasize"><a href="/legal">Privacy &amp; Terms</a> <span>|</span> <a href="/contact">Contact</a></div>
 </div>

@@ -13,7 +13,7 @@
 	<%= render 'layouts/analytics' %>
 </head>
 
-<body class="info_body">
+<body>
 	<% if Rails.env.production? %>
 	  <script>//ga('send', 'pageview');</script>
 	<% end %>
@@ -48,15 +48,15 @@
 	</div>
 
 	<div class="features clearfix">
-		<h2>Consectetur</h2>
+		<h2>Features</h2>
 		<div class="feature_col_l">
 			<div class="feature">
 				<div class="feature_l">
 					<div class="feature_icon">O</div>
 				</div>
 				<div class="feature_r">
-					<div class="feature_header">Officia deserunt</div>
-					<div class="feature_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="feature_header">CUSTOM ATTRIBUTES</div>
+					<div class="feature_text">Save and tag your teas the way you like. Add your own attributes with whatever naming conventions and categories you choose.</div>
 				</div>
 			</div>
 
@@ -65,8 +65,8 @@
 					<div class="feature_icon">O</div>
 				</div>
 				<div class="feature_r">
-					<div class="feature_header">Officia deserunt</div>
-					<div class="feature_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="feature_header">MOBILE FRIENDLY</div>
+					<div class="feature_text">The site is 100% mobile friendly and works on a desktop, tablet, or a phone. No need to download any apps.</div>
 				</div>
 			</div>
 		</div>
@@ -76,8 +76,8 @@
 					<div class="feature_icon">O</div>
 				</div>
 				<div class="feature_r">
-					<div class="feature_header">Officia deserunt</div>
-					<div class="feature_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="feature_header">STEEPING NOTES</div>
+					<div class="feature_text">The perfect cup of tea is worth finding and repeating. Keep track of how you steep all your teas and any other notes you may have.</div>
 				</div>
 			</div>
 
@@ -86,17 +86,14 @@
 					<div class="feature_icon">O</div>
 				</div>
 				<div class="feature_r">
-					<div class="feature_header">Officia deserunt</div>
-					<div class="feature_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="feature_header">CENTRALIZED WISHLIST</div>
+					<div class="feature_text">Why have wishlists scattered online? Save the name and url to any tea you find. Include pricing info and so you can make comparisons later on.</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	<div class="footer info_footer">
-		<a href="/legal">Privacy &amp; Terms</a> | <a href="/contact">Contact</a>
-	</div>
-
+	<%= render 'layouts/footer' %>
 
 </body>
 </html>

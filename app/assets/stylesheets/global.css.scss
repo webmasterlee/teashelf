@@ -159,24 +159,10 @@ h6 {
 .header_right {float:right;width:55%;text-align:right;margin-top: 20px;font-size: 18px;}
 
 .header_right a {margin:0 10px;}
-/*
-.nav {margin-bottom: 30px;}
-.nav a {
-	background-color: #ff725e;
-    border-radius: 0.5em;
-    color: white;
-    line-height: 40px;
-    margin-right: 15px;
-    padding: 6px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: all 0.3s ease-in-out;
+
+@media handheld, only screen and (max-width:500px) {
+	.header_right {margin-top: 2%;}
 }
-
-.nav a:hover {
-	background-color: #e14d39;
-}*/
-
 /* Effect 21: borders slight translate */
 .nav {
     margin: 15px 0 30px;
@@ -392,12 +378,26 @@ a.selected {
 /*HOME*/
 
 .splash {
-	background-image:url(image_path('master-header-image2.jpg'));
+	background-image:url(image_path('hp_top_l.jpg'));
 	background-position: center top;
 	background-repeat:no-repeat;
 	background-size: cover;
 	min-height: 800px;
 	color: white;
+}
+
+@media handheld, only screen and (max-width: 780px) {
+	.splash {
+		background-image:url(image_path('hp_top_m.jpg'));
+		min-height: 542px;
+	}
+}
+
+@media handheld, only screen and (max-width: 530px) {
+	.splash {
+		background-image:url(image_path('hp_top_s.jpg'));
+		min-height: 443px;
+	}
 }
 
 .splash .header_right a {
@@ -407,6 +407,9 @@ a.selected {
     margin: 0 10px;
     text-decoration: none;
     }
+@media handheld, only screen and (max-width:500px) {
+	.splash .header_right a {font-size: 20px;}
+}
 .splash h1 {
 	color: white;
     font-size: 80px;
@@ -441,6 +444,8 @@ a.selected {
 }
 @media handheld, only screen and (max-width:650px) {
 	.splash h1 {font-size: 30px;}
+	.splash h1 {text-shadow:none;}
+	.splash h1 span {text-shadow:none;}
 }
 @media handheld, only screen and (max-width:490px) {
 	.splash h1 {font-size: 25px;}
@@ -464,21 +469,34 @@ a.selected {
 .slide h1 {color: #f8ff7a;font-size: 40px;text-transform: uppercase;margin-bottom: 3%;}
 .tea_bullet {
 	float: left;
-    margin-right: 1%;
-    width: 5%;
-    padding-top: 5px;
+    margin-right: 3%;
+    width: 3%;
+    padding-top: 10px;
     }
 
 .hp_benefit_section {
-	background-image:url(image_path('master-about-image-section.jpg'));
+	background-image:url(image_path('hp_about_l.jpg'));
 	background-position: center top;
-	
 	background-repeat:no-repeat;
 	background-size: cover;
 	min-height: 580px;
 	color: white;
 	overflow: auto;
 	padding: 4%;
+}
+
+@media handheld, only screen and (max-width: 780px) {
+	.hp_benefit_section {
+		background-image:url(image_path('hp_about_m.jpg'));
+		min-height: 478px;
+	}
+}
+
+@media handheld, only screen and (max-width: 530px) {
+	.hp_benefit_section {
+		background-image:url(image_path('hp_about_s.jpg'));
+		min-height:394px;
+	}
 }
 .benefit_container {
 	margin:0 auto;
@@ -499,6 +517,7 @@ a.selected {
 @media handheld, only screen and (max-width:680px) {
 	.hp_benefit_section h2, .hp_benefit {font-size: 20px;}	
 	.hp_signup {text-align: left;}
+	.tea_bullet {padding-top: 0;}
 }
 
 a.cta {
@@ -531,10 +550,18 @@ color: #fff;
 }
 
 @media handheld, only screen and (max-width:400px) {
-	
 	.slide h1 {font-size: 20px;}
 }
 
+.features {margin: 0 auto;width: 90%;padding: 4%;max-width: 1600px}
+.features h2 {text-align: center;text-transform: uppercase;}
+.feature_col_l, .feature_col_r {float: left;width: 45%;margin-top: 5%;}
+.feature_col_l {margin-right: 5%;}
+.feature_col_r {margin-left: 5%;}
+.feature_l {float: left;width: 10%;}
+.feature_r {float: left;width: 90%;padding: 0 5% 5% 5%;}
+.feature_header {text-transform: uppercase;font-size: 30px;margin-bottom: 10px;}
+.feature_text {font-size: 25px;}
 /*GENERIC*/
 .block {display:block;} /*needed to remove whitespace below images, html5 doctype issue*/
 .clear {clear:both;}
@@ -821,20 +848,6 @@ hr {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
-/*HOMEPAGE*/
-.app {
-	padding: 50px 30px;
-	float:left;
-}
-
-.app {border-radius: 1em 1em 1em 1em;margin-right: 10px;}
-.app.odd {background-color:#ff725e;}
-.app.even {background-color:#FFB85A;}
-.app_name a {font-size: 30px;text-decoration: none;}
-.app.odd .app_name, .app.odd a {color:#fff;}
-.app.even .app_name, .app.even a {color:#fff;}
-
 
 /*accordion*/
 .night_mode {

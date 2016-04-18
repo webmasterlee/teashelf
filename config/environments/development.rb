@@ -47,6 +47,11 @@ Rails.application.configure do
     :password => ENV["mail_password"]
   }
 
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.console = true
+  end
   #config.middleware.use ExceptionNotification::Rack,
     #:email => {
     #:delivery_method => :smtp,

@@ -13,7 +13,8 @@ class TeasController < ApplicationController
       @sortType = params[:sortType] == "asc" ? "desc" : "asc" 
     end
     
-    @teas = Tea.teaSort(params, @sortType, current_user.id).order("archive,favorite desc,name")
+    # .includes fixes N+1 query
+    @teas = Tea.teaSort(params, @sortType, current_user.id).order("archive,favorite desc,name").includes(:tea_type, :atts)
     @totalTeas = @teas.where(:stock => "In").count
   end
 

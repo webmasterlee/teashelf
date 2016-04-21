@@ -289,6 +289,7 @@ a.login_link {
 }
 @media handheld, only screen and (max-width:900px) {
 	.frame_container {width: 100%;}
+	.night_mode .master_frame_container {background-color:transparent;}
 }
 
 .night_mode {
@@ -306,12 +307,9 @@ a.login_link {
 }
 .frame_container.isOpen { transform: translate3d(200px, 0, 0); }
 
-
-
 .footer {
 	margin-top: 30px;
 	font-size: 14px;
-
 }  
 
 .footer a {
@@ -469,7 +467,7 @@ a.selected {
 	.splash h1 {font-size: 25px;}
 }
 @media handheld, only screen and (max-width:400px) {
-	.splash h1 {font-size: 20px;}
+	.splash h1 span {display: inline;}
 }
 
 .tea_bullet {
@@ -509,7 +507,7 @@ a.selected {
 	width: 80%;
 }
 .hp_benefit {font-size: 40px;float: left;width: 93%;}
-.hp_benefit_section h2 {text-transform: uppercase;margin-bottom: 40px;}
+.hp_benefit_section h2 {text-transform: uppercase;margin-bottom: 5%;}
 .hp_benefit_item {margin-bottom: 15px;@extend .clearfix;}
 .hp_signup {text-align: center;margin-top: 5%;}
 
@@ -520,7 +518,9 @@ a.selected {
 	.hp_benefit_section h2, .hp_benefit {font-size: 30px;}
 }
 @media handheld, only screen and (max-width:680px) {
-	.hp_benefit_section h2, .hp_benefit {font-size: 20px;}	
+	.hp_benefit_section {padding-top: 7%;}
+	.hp_benefit_section h2 {font-size: 22px;}	
+	.hp_benefit {font-size: 20px;}	
 	.hp_signup {text-align: left;}
 	.tea_bullet {padding-top: 0;}
 }
@@ -554,15 +554,26 @@ color: #060204;
 }
 
 
-.features {margin: 0 auto;width: 90%;padding: 4%;max-width: 1600px}
+.features {margin: 0 auto;padding: 4%;max-width: 1400px;@extend .clearfix;}
 .features h2 {text-align: center;text-transform: uppercase;color: #e14d39;}
 .feature_col_l, .feature_col_r {float: left;width: 45%;margin-top: 5%;}
 .feature_col_l {margin-right: 5%;}
 .feature_col_r {margin-left: 5%;}
-.feature_l {float: left;width: 10%;}
+.feature_l {float: left;width: 10%;text-align: center;padding-top: 8px;}
 .feature_r {float: left;width: 90%;padding: 0 5% 5% 5%;}
 .feature_header {text-transform: uppercase;font-size: 30px;margin-bottom: 10px;color: #e14d39;}
 .feature_text {font-size: 25px;}
+.feature {margin-bottom: 5%;@extend .clearfix;}
+
+
+@media handheld, only screen and (max-width:750px) {
+	.feature_col_l, .feature_col_r {float: none;width: 100%;margin: 5% 0 0 0;}
+	.feature_header {font-size: 25px;}
+	.feature_text {font-size: 20px;}
+	.features {padding-top: 7%;}
+	.features h2 {margin-bottom: 10%;}
+}
+
 /*GENERIC*/
 .block {display:block;} /*needed to remove whitespace below images, html5 doctype issue*/
 .clear {clear:both;}

@@ -24,41 +24,12 @@ html {overflow-y: scroll;height: 100%;}
 
 body {
 	font-family:$primary_font;
-	min-height: 100%; /*http://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height*/
+	height: 100%; /*http://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height*/
 	margin:0;
 	padding:0;
 	font-size: 20px;
 	color: #4b4b4b; /*#e14d39*/
 	/*overflow: visible !important;*/ /*needed for fck textarea fullscreen*/
-}
-
-.day_mode, .night_mode {
-	background-image:url(image_path('bg_secondary.jpg'));
-	background-position: right top;
-	background-repeat:no-repeat;
-}
-
-.night_mode {
-	color: white;
-}
-@media handheld, only screen and (max-width:1480px) {
-	.day_mode, .night_mode {background-position: 120% top;}
-}
-
-@media handheld, only screen and (max-width:1250px) {
-	.day_mode, .night_mode {
-		background-image:url(image_path('bg_secondary_s.jpg'));
-		background-position: right 30%;
-	}
-}
-
-
-@media handheld, only screen and (max-width:1100px) {
-	.day_mode, .night_mode {background-position: 120% 30%;}
-}
-@media handheld, only screen and (max-width:900px) {
-	.day_mode, .night_mode {background-image:none;}
-	.night_mode {background: #333 !important;}
 }
 
 a:link, a:visited {
@@ -140,6 +111,59 @@ h6 {
 } 
 
 /*LAYOUT*/
+
+.day_mode, .night_mode {
+	background-image:url(image_path('bg_secondary.jpg'));
+	background-position: right top;
+	background-repeat:no-repeat;
+}
+
+.night_mode {
+	color: white;
+}
+
+.night_mode .master_frame_container {background-color: rgba(0, 0, 0, 0.8);height: 100%;}
+
+.frame_container {	
+	max-width:700px;
+	padding: 15px 10px;
+	margin-left: 15%;
+	position: relative;	
+	flex: 1;
+	padding: 30px;
+	height: 100%;
+	transform: translate3d(0, 0, 0);
+	transition: transform .3s;
+}
+
+@media handheld, only screen and (max-width:1480px) {
+	.day_mode, .night_mode {background-position: 120% top;}
+}
+@media handheld, only screen and (max-width:1350px) {
+	.frame_container {width: 65%;}
+}
+@media handheld, only screen and (max-width:1320px) {
+	.frame_container {margin-left: 0;}
+}
+@media handheld, only screen and (max-width:1150px) {
+	.day_mode, .night_mode {
+		background-image:url(image_path('bg_secondary_s.jpg'));
+		background-position: right 40px;
+	}
+}
+@media handheld, only screen and (max-width:1100px) {
+	.frame_container {width: 70%;}
+	.day_mode, .night_mode {background-position: 120% 40px;}
+}
+@media handheld, only screen and (max-width:900px) {
+	.day_mode, .night_mode {background-position: 130% 40px;}
+}
+@media handheld, only screen and (max-width:850px) {
+	.frame_container {width: 100%;max-width: none;}
+	.night_mode .master_frame_container {background-color:transparent;}
+	.day_mode, .night_mode {background-image:none;}
+	.night_mode {background: #333 !important;}
+}
 
 
   
@@ -267,30 +291,6 @@ a.login_link {
 	background-color: #FF725E;
 }
 .menu_button {display: none;cursor: pointer;}
-
-.night_mode .master_frame_container {background-color: rgba(0, 0, 0, 0.8);height: 100%;}
-
-.frame_container {	
-	max-width:900px;
-	padding: 15px 10px;
-	position: relative;	
-	flex: 1;
-	padding: 30px;
-	height: 100%;
-	transform: translate3d(0, 0, 0);
-	transition: transform .3s;
-}
-
-@media handheld, only screen and (max-width:1350px) {
-	.frame_container {width: 65%;}
-}
-@media handheld, only screen and (max-width:1100px) {
-	.frame_container {width: 70%;}
-}
-@media handheld, only screen and (max-width:900px) {
-	.frame_container {width: 100%;}
-	.night_mode .master_frame_container {background-color:transparent;}
-}
 
 .night_mode {
 	input[type="text"], 
@@ -521,7 +521,7 @@ a.selected {
 	.hp_benefit_section {padding-top: 7%;}
 	.hp_benefit_section h2 {font-size: 22px;}	
 	.hp_benefit {font-size: 20px;}	
-	.hp_signup {text-align: left;}
+	.hp_signup {text-align: left;margin-top: 9%;}
 	.tea_bullet {padding-top: 0;}
 }
 

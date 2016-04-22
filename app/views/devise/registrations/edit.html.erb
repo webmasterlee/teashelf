@@ -23,14 +23,16 @@
             <div class="td"><%= f.label :email %></div>
             <div class="td"><%= f.email_field :email %></div>
         </div>
-
+<%
+=begin %>
         <div class="tr">
             <div class="td">Night Mode</div>
             <div class="td top_padding">
                 <label><%= check_box_tag "night_mode_default", "true", checked = @night_mode %> Set as Default</label>
             </div>
         </div>
-
+<%
+=end %>
         <div class="tr">
             <div class="td"><%= f.label :current_password %></div>
             <div class="td">

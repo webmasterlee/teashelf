@@ -8,13 +8,17 @@
 
 		<% if user_signed_in? %>
 			<%= link_to 'Attributes', atts_path %>		
+<%
+=begin %>		
 			<span>|</span>
-		
+
 			<% if session[:night_mode] == "on" %>
 				<a href="?night_mode=off">Day Mode</a>
 			<% elsif %>
 				<a href="?night_mode=on">Night Mode</a>	
 			<% end %>
+<%
+=end %>			
 		<% end %>
 
 		<br/><br/><br/>

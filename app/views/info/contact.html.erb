@@ -42,7 +42,7 @@ $(document).ready(function() {
 	</div>
 
 	<div class="contact_input">
-		<%= recaptcha_tags :callback => "captcha_cb", :onload => "captcha_load" %>
+		<%= recaptcha_tags :callback => "captcha_cb", :onload => "captcha_load", :theme => session[:night_mode] == "on" ? "dark" : "light" %>
 		<input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
 	</div>
 

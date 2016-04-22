@@ -71,8 +71,6 @@
 
 <% end %>
 
-
-<h1>Unhappy?</h1><br/>
-
-<%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+<br/>
+Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "de_emphasize small" %>
 

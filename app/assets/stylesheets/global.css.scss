@@ -33,7 +33,7 @@ body {
 }
 
 a:link, a:visited {
-	color: #ff904c;
+	color: #ff725e;
 	font-weight: bold;
 	font-size: 18px;
 	text-transform: uppercase;
@@ -292,19 +292,6 @@ a.login_link {
 }
 .menu_button {display: none;cursor: pointer;}
 
-.night_mode {
-	input[type="text"], 
-	input[type="password"], 
-	input[type="datefield"], 
-	input[type="file"], 
-	input[type="email"], 
-	input[type="number"], 
-	textarea {
-		background-color: rgba(63, 63, 63, 0.8);
-		border:none; 
-		color: white;
-	}
-}
 .frame_container.isOpen { transform: translate3d(200px, 0, 0); }
 
 .footer {
@@ -343,7 +330,7 @@ a.selected {
 }
  
  .page_title_sec {
-	margin-bottom:20px;
+	margin-bottom:30px;
  }
 
 
@@ -634,14 +621,15 @@ background-color: #ff904c;
 .no_margin_right {margin-right: 0 !important;}
 .nudge_right {margin-right: 7px;}
 .nudge_top {margin-top: 7px;}
+.nudge_bottom {margin-bottom: 7px;}
 .left {float:left;width:50%;}
 .right {float:right;width:50%;}
 .float_right {float: right;}
 .float_left {float: left;}
 .content_right {text-align:right;}
 .content_middle, .center {text-align:center;}
-.small {font-size:16px;}
-.small a {font-size: 13px;}
+.small {font-size:16px !important; }
+.small a {font-size: 13px !important;}
 .de_emphasize, .de_emphasize a {color: #aaa !important; }
   
   /*for errors*/
@@ -747,7 +735,9 @@ select {
     padding: 5px 3px;
 }    
 
-.contact_input input[type="text"] {
+.contact_input {margin: 5% 0;}
+
+.contact_input input[type="text"], .contact_input textarea {
 	background-color: rgba(187, 187, 187, 0.25);
 	border: medium none;
 	color: #343434;
@@ -755,10 +745,23 @@ select {
 	font-family: $primary_font;
 	font-size: 24px;
 	font-weight: 300;
-	margin: 35px 0;
 	max-width: 400px;
 	padding: 2% 3%;
 	width: 95%;
+}
+
+.night_mode {
+	input[type="text"], 
+	input[type="password"], 
+	input[type="datefield"], 
+	input[type="file"], 
+	input[type="email"], 
+	input[type="number"], 
+	textarea {
+		background-color: rgba(63, 63, 63, 0.8);
+		border:none; 
+		color: white;
+	}
 }
 
 .indent {margin-left: 20px;margin-top: 3px;}
@@ -966,6 +969,11 @@ hr {
 .tt-suggestion p {
   margin: 0;
 }
+
+/*RECAPTCHA*/
+
+.rc-anchor-dark {background: rgba(63, 63, 63, 0.8) none repeat scroll 0 0;}
+.rc-anchor {border-radius: 0;}
 
 /*JQUERY VALIDATION PLUGIN*/
 form div.error,form label.error {

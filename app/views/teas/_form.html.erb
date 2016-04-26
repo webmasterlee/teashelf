@@ -39,7 +39,7 @@
     <% else %>
       <div class="tr">
         <div class="td">Attributes</div>
-        <div class="td top_padding">Add your own <%= link_to 'custom attributes', new_att_path %> to better organize and search your teas.</div>
+        <div class="td top_padding">Add your own <%= link_to 'custom attributes', new_att_path %> to better organize and filter your teas.</div>
       </div>
     <% end %>
 
@@ -82,12 +82,16 @@
       <div class="td">Steeping Notes</div>
       <div class="td">
         <%= f.text_area :notes,:placeholder => "number of teaspoons, temperature, steep time...", :rows => 6 %>
+        <div class="small">
+          Steepeing Notes are public and anonymous. <a href="javascript:;" class="js_show_notes_info no_transform default_black">huh?</a>
+          <div class="hide js_css_notes_info">Steeping notes are shared with other users who have the same teas. This allows you to experiment with other methods of steeping your tea. No other information is attached to the note making it completely anonymous.</div>
+        </div>
       </div>
     </div>
 
     <div class="tr">
       <div class="td"></div>
-      <div class="td"><%= f.submit "Save", :class => "btn" %></div>
+      <div class="td"><br/><%= f.submit "Save", :class => "btn" %></div>
     </div>
   </div>
 

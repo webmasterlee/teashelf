@@ -50,6 +50,11 @@ $(document).on('click','.site_accordion_title', function() {
 	*/
 });	
 
+$(document).on('click','.js_show_notes_info', function() {  
+	$(".js_css_notes_info").show();
+});	
+
+
 $(document).on('click','.options_icon', function() {  
 	if ($(".display_options").is(":hidden")) {	
 		$(".display_options").slideDown();

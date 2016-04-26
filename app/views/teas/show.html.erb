@@ -47,11 +47,10 @@
 <div class="site_accordion">
   <div class="site_accordion_title">Community steeping notes</div>
   <div class="site_accordion_desc">
-    <div class="table full_width_table last_cell_right altrowcolor">
+    <div class="table full_width_table altrowcolor">
     <% @otherNotes.each do |otherNotes| %>
         <div class="tr">
           <div class="td"><%= simple_format otherNotes.notes %></div>
-          <div class="td small"><%= otherNotes.user.username %></div>
         </div>
     <% end %>
     </div>

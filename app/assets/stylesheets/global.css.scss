@@ -630,7 +630,9 @@ background-color: #ff904c;
 .content_middle, .center {text-align:center;}
 .small {font-size:16px !important; }
 .small a {font-size: 13px !important;}
+.no_transform {text-transform: none !important;}
 .de_emphasize, .de_emphasize a {color: #aaa !important; }
+.default_black {color: #4b4b4b !important;}
   
   /*for errors*/
   .js_css_msg_target {cursor: pointer;}
@@ -673,7 +675,7 @@ background-color: #ff904c;
 .forty_sixty .td:first-child {width: 40%;} /* forty_sixt for two column tables*/
 .forty_sixty .td:first-child + td {width: 60%;}
 .full_width_table {width: 100%;}
-.altrowcolor .tr:nth-child(odd) {background-color: rgba(255, 255, 255, 0.3);}
+.altrowcolor .tr:nth-child(odd) {background-color: #f3f3f3;}
 .night_mode .altrowcolor .tr:nth-child(odd) {background-color: rgba(0, 0, 0, 0.3);}
 .altrowcolor .td {padding: 15px 10px;}
 .top_padding {padding-top: 9px;}
@@ -788,6 +790,7 @@ hr {
     margin-bottom: 7px;
 }
 /*OTHER*/
+.js_css_notes_info {max-width: 300px;}
 .twitter-typeahead {display: block !important;}
 .display_options span {margin: 10px 15px 0 0;display: inline-block;}
 .display_options {

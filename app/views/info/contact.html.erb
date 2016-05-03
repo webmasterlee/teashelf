@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-$(document).ready(function() {   
+$(document).ready(function() {
 
 	$(".js_contact_form").validate({
 		errorElement: "div",
@@ -38,7 +38,7 @@ $(document).ready(function() {
 	</div>
 
 	<div class="contact_input">
-		<%= f.text_area :message, placeholder: "Message*", :class => "required"%>
+		<%= f.text_area :message, placeholder: "Message*", rows: 4, :class => "required"%>
 	</div>
 
 	<div class="contact_input">

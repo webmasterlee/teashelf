@@ -52,6 +52,11 @@ $(document).ready(function() {
 
 		<div class="tr">
 			<div class="td"></div>
+			<div class="td"><label class="newsletter_text"><%= f.check_box :newsletter %> Email me when special tea related discounts and promotions become available.</label></div>
+		</div>
+
+		<div class="tr">
+			<div class="td"></div>
 			<div class="td">
 				<%= recaptcha_tags %>
 				<input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">

@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
     #http://www.rubydoc.info/github/plataformatec/devise/Devise/ParameterSanitizer
     #http://stackoverflow.com/questions/34510155/cant-add-custom-fields-to-devise-model-in-ruby-on-rails-private-method-error
     devise_parameter_sanitizer.for(:account_update) << :username ## add the attributes you want to permit
+    devise_parameter_sanitizer.for(:account_update) << :newsletter
     #devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 end

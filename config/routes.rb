@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   post 'exclusions/create'
 
   resources :notes
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
             :controllers => { :registrations => "my_devise/registrations", :sessions => "my_devise/sessions"}
 
   
-  
+  ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

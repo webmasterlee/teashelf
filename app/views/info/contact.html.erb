@@ -24,6 +24,8 @@ $(document).ready(function() {
 
 <%= form_for @contact, html: {class: "js_contact_form"}, url: contact_path do |f| %>
 
+<h2>We are committed to making this the best user experience possible. Please email us with any questions, comments, or feedback.</h2>
+
 <div class="contact_form">
 	<div class="contact_input">
 		<%= f.text_field :name, placeholder: "Name*", autofocus: true, :class => "required" %>

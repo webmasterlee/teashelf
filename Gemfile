@@ -19,6 +19,10 @@ group :production, :staging do
     gem 'rails_12factor'
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 gem 'strip_attributes', '1.7.1'
 
 gem 'devise'

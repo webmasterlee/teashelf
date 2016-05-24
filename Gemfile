@@ -13,7 +13,7 @@ gem 'exception_notification'
 gem 'activeadmin', github: 'activeadmin'
 
 #for heroku
-gem 'puma'
+#gem 'puma'
 
 group :production, :staging do
     gem 'rails_12factor'

@@ -29,5 +29,3 @@ test:
 production:
   <<: *default
   database: teafinder_prod
-  username: rails
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>

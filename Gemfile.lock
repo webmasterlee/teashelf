@@ -47,6 +47,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    error_page_assets (0.4)
     erubis (2.7.0)
     exception_notification (4.1.4)
       actionmailer (~> 4.0)
@@ -70,8 +71,6 @@ GEM
     mime-types-data (3.2016.0521)
     minitest (5.9.0)
     multi_json (1.12.1)
-    non-stupid-digest-assets (1.0.8)
-      sprockets (>= 2.0)
     orm_adapter (0.5.0)
     pg (0.18.4)
     puma (3.4.0)
@@ -154,11 +153,11 @@ DEPENDENCIES
   bullet
   coffee-rails (~> 4.0.0)
   devise
+  error_page_assets
   exception_notification
   figaro
   jbuilder (~> 2.0)
   jquery-rails
-  non-stupid-digest-assets
   pg
   puma
   quiet_assets

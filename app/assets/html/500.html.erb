@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>We're sorry, but something went wrong (500)</title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-  <link href='/assets/global.css' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'global', media: 'all' %>
 </head>
 
 <body class="day_mode">
@@ -15,19 +15,23 @@
 
       <div class="header clearfix">
         <div class="header_left">
-            <a href="/"><img width="197" height="72" src="/assets/logo_day_2x.png" alt=""></a>
+            <a href="/"><%= image_tag("logo_day_2x.png", :width => 197, :height => 72) %></a>
         </div>
         <div class="header_right"></div>
       </div>
 
       <div class="page_title_sec">
         <span class="page_title">
-           Sorry, the page you were looking for doesn't exist.
+          Yeah. We're sorry, but something went wrong.
         </span>
       </div>
 
       <div class="content clearfix">
-        <p>You may have mistyped the address or the page may have moved.</p>
+        This error has been logged and forwarded to the Tealogger.com team. If you have any 
+        questions or comments please feel free to <a href="/contact">contact us</a>.</p>
+  
+        <p>We apologize for any inconvenience.</p>
+  
         <p><a href="/">Home Page</a></p>
       </div>
     </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href='//fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-  <link href='/assets/global.css' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'global', media: 'all' %>
 </head>
 
 <body class="day_mode">
@@ -15,7 +15,7 @@
 
       <div class="header clearfix">
         <div class="header_left">
-            <a href="/"><img width="197" height="72" src="/assets/logo_day_2x.png" alt=""></a>
+            <a href="/"><%= image_tag("logo_day_2x.png", :width => 197, :height => 72) %></a>
         </div>
         <div class="header_right"></div>
       </div>

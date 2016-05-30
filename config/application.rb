@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Teashelf
   class Application < Rails::Application
+    config.assets.precompile += %w[404.html 422.html 500.html] #for error_page_assets gem
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

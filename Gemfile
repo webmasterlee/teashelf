@@ -10,6 +10,8 @@ gem 'figaro' #for secret keys
 
 gem 'exception_notification'
 
+gem "non-stupid-digest-assets" #to get styles and images to work in 404
+
 #for heroku
 gem 'puma'
 

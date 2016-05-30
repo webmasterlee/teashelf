@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   
-  def authenticate_admin_user!
-    raise ActionController::RoutingError, 'Not Found' unless current_user.try(:admin?)
-  end
+  #def authenticate_admin_user!
+  #  raise ActionController::RoutingError, 'Not Found' unless current_user.try(:admin?)
+  #end
 
   def after_sign_in_path_for(resource)
     teas_path

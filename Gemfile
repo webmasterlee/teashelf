@@ -10,8 +10,7 @@ gem 'figaro' #for secret keys
 
 gem 'exception_notification'
 
-gem 'activeadmin', github: 'activeadmin'
-
+gem 'error_page_assets'
 #for heroku
 #gem 'puma'
 

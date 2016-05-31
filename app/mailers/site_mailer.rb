@@ -1,5 +1,5 @@
 class SiteMailer < ActionMailer::Base
-  default from: "Tea Logger <#{ENV["mail_from_email"]}>"
+  default from: "TeaLogger.com <#{ENV["mail_from_email"]}>"
 
 
   def contact(form_params)

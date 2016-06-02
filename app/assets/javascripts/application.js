@@ -219,7 +219,17 @@ document.addEventListener("turbolinks:load", function() {
 	// can only be one of these on page
 	$(".required_form_bottom").validate({errorElement: "div"});
 
-	
+	$(".js_change_password_form").validate({
+		errorElement: "div",
+		rules: {				
+	    	"user[password_confirmation]": {
+	      		equalTo: "#user_password"
+	    	},		    	
+	    	"user[password]": {
+	    		minlength: 8
+	    	}
+  		}
+	});
 });
 
 /*

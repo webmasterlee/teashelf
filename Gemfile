@@ -11,6 +11,7 @@ gem 'figaro' #for secret keys
 gem 'exception_notification'
 
 gem 'error_page_assets'
+
 #for heroku
 #gem 'puma'
 

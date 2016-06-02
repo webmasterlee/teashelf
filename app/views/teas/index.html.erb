@@ -68,9 +68,9 @@
             <!-- FAVORITES -->
             <% if tea.favorite %>
               <% if session[:night_mode] == "on" %>
-                <%= image_tag("icon_star_night2x.png", :width => 16, :height => 16, :alt => "Favorite", :class => "favorite") %>
+                <%= image_tag("icon_star_night2x.png", :width => 16, :height => 16, :alt => "Favorite", :class => "favorite", :title => "Marked as Favorite") %>
               <% else %>
-                <%= image_tag("icon_star_day2x.png", :width => 16, :height => 16, :alt => "Favorite", :class => "favorite") %>
+                <%= image_tag("icon_star_day2x.png", :width => 16, :height => 16, :alt => "Favorite", :class => "favorite", :title => "Marked as Favorite") %>
               <% end %>
             <% end %>
           </div>

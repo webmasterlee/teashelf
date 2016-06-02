@@ -16,7 +16,7 @@ class InfoController < ApplicationController
     
     if @contact.valid? && captcha
       SiteMailer.contact(@contact).deliver
-      redirect_to contact_path, notice: "Your messages has been sent."
+      redirect_to contact_path, notice: "Your message has been sent."
     else
       if !captcha
         flash[:alert] = @contact.errors.full_messages.push("Sorry you didn't pass the Robot test.")

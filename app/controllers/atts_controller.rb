@@ -26,16 +26,16 @@ class AttsController < ApplicationController
   def create
     @att = Att.new(att_params)
 
-
     respond_to do |format|
+
+      attExist = Att.where(:user_id => current_user.id).limit(2)
+
       if @att.save
 
-        attExist = Att.where(:user_id => current_user.id).limit(1)
-
-        if attExist.count
-          msg = 'Attribute was successfully created.'
-        else
+        if attExist.count == 1
           msg = ['Attribute was successfully created.','You can now this attribute to your teas!']
+        else
+          msg = 'Attribute was successfully created.'
         end
         
         format.html { redirect_to atts_url, notice: msg }

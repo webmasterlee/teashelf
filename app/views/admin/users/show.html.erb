@@ -1,0 +1,5 @@
+<% @page_title = "User: #{@user.username}" %>
+
+<% @user.teas.each_with_index do |tea,index| %>
+	<%= tea.name %><br/>
+<% end %>

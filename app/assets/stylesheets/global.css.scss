@@ -711,6 +711,10 @@ background-color: #ff904c;
 .altrowcolor tr:nth-child(odd) {background-color: #F4F4F4;}
 .first_cell_bg td:first-child {background-color: #efefef;border-bottom: 1px solid #fff;font-weight: bold;}
 
+.table_borders {border-collapse: collapse;}
+.table_borders td, .table_borders th {border:1px solid #ddd;padding: 7px 10px !important;}
+
+
 
 /* FORMS */
 
@@ -986,6 +990,7 @@ form div.error,form label.error {
 	margin: 3px 0;
 }
 input.error,select.error,textarea.error {border:2px dotted #D8D7D3;}
+
 
 /*
 themeColor1   orange ff9900

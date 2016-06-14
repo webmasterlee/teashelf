@@ -2,6 +2,9 @@
 	
 	<% if !current_page?('/') %>
 		<% if current_user.try(:admin?) %>
+			<%= link_to 'Admin', admin_users_path %> 
+			<span>|</span>
+
 			<%= link_to 'Types', tea_types_path %> 
 			<span>|</span>
 		<% end %>

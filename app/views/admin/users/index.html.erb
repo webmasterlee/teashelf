@@ -1,0 +1,49 @@
+<% @page_title = "Users" %>
+
+<table class="table_spacing table_borders">
+  	<thead>
+		<tr>
+			<th>Username</th>
+			<th>SIC</th>
+			<th>NL</th>
+			<th>TT</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<% @users.each_with_index do |user,index| %>
+		<tbody>
+			<tr>
+				<td><b><%= user.username %></b></td>
+				<td><%= user.sign_in_count %></td>
+				<td><%= user.newsletter %></td>
+				<td><%= user.teas.count %></td>
+				<td><a href="javascript:;" class="js_more_details" data-index="<%= index %>">More</a></td>
+			</tr>
+			<tr class="hide js_user_details_<%= index %>">
+				<td colspan="5">
+					<!-- email, last_sign_in_at, created_at -->
+					<div class="indent">
+						<div class="table first_cell_bold">
+							<div class="tr">
+								<div class="td">Email</div>
+								<div class="td"><%= user.email %></div>
+							</div>
+							<div class="tr">
+								<div class="td">Last Sign In</div>
+								<div class="td"><%= format_date user.last_sign_in_at %></div>
+							</div>
+							<div class="tr">
+								<div class="td">Created</div>
+								<div class="td"><%= format_date user.created_at%></div>
+							</div>
+						</div>
+						<%= link_to "View Teas", admin_user_path(user) %>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+    <% end %>
+  
+</table>
+

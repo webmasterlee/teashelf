@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    resources :users, :teas
+  end
+
   post 'exclusions/create'
-
-  resources :notes
-
-  resources :atts
-
   get 'info/index'
   get 'teas/random'
   get 'teas/get_tea_names'
@@ -19,6 +18,10 @@ Rails.application.routes.draw do
   post 'contact', to: 'info#contact_send'
   #get '/about' => 'pages#about'
 
+  resources :notes
+
+  resources :atts
+  
   resources :teas
 
   resources :wishlists

@@ -181,6 +181,11 @@ $(document).on('change','.js_narrow_by_att', function() {
 	}
 });
 
+//ADMIN SECTION
+$(document).on('click','.js_more_details', function() { 
+	$(".js_user_details_" + $(this).data("index")).toggle();
+});
+
 //$(document).on('page:change', function() {
 document.addEventListener("turbolinks:load", function() {	
 	/*$('.tea_form').submit(function(){

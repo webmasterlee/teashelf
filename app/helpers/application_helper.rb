@@ -25,4 +25,10 @@ module ApplicationHelper
 
 		results.html_safe
 	end
+
+	def format_date(date, format='%m/%d/%Y %I:%M%p')
+	  return if date.blank?
+
+	  date.to_datetime.strftime(format)
+	end
 end

@@ -43,7 +43,7 @@
 
 			<% if !user_signed_in? %>
 				<div class="hp_signup">
-					<a href="<%= new_user_registration_path %>" class="cta">Sign up</a>
+					<a href="<%= new_user_registration_path %>" class="cta white">Sign up</a>
 				</div>
 			<% end %>
 		</div>
@@ -93,6 +93,12 @@
 				</div>
 			</div>
 		</div>
+
+		<% if !user_signed_in? %>
+			<div class="hp_signup center">
+				<a href="<%= new_user_registration_path %>" class="cta">Get Started</a>
+			</div>
+		<% end %>
 	</div>
 	
 	<%= render 'layouts/footer' %>

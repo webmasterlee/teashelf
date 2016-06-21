@@ -13,9 +13,12 @@ Rails.application.routes.draw do
   root 'info#index'
   
   get 'legal', to: 'info#legal'
+
   get 'about', to: 'info#about'
   get 'contact', to: 'info#contact', as: 'contact'
   post 'contact', to: 'info#contact_send'
+  get 'thanks', to: 'teas#index'
+  
   #get '/about' => 'pages#about'
 
   resources :notes

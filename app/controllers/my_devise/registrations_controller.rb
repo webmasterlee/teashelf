@@ -74,6 +74,10 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     edit_user_registration_path
   end
 
+  def after_sign_up_path_for(resource)
+    thanks_path
+  end
+
   private
 
   def set_night_mode

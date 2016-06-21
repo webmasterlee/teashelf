@@ -520,8 +520,8 @@ a.selected {
 }
 
 a.cta {
-border: 2px solid #fff;
-color: #fff;
+border: 2px solid #e14d39;
+color: #e14d39;
 display: inline-block;
 font-size: 42px;
 font-weight: normal;
@@ -532,13 +532,26 @@ text-decoration: none;
 text-transform: uppercase;
 -webkit-appearance: none;
 transition: all 0.3s ease-in-out;
+
+	&:hover, &:active {
+		background-color: #e14d39;
+		border-color: #e14d39;
+		color: #fff;
+	}
+
+	&.white {
+		border: 2px solid #fff;
+		color: #fff;
+	}
+
+	&.white:hover, &.white:active {
+		background-color: #fff;
+		border-color: #060204;
+		color: #060204;
+	}
+
 }    
 
-a.cta:hover, a.cta:active {
-background-color: #fff;
-border-color: #060204;
-color: #060204;
-}
 
 @media handheld, only screen and (max-width:600px) {
 	

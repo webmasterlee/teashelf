@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'info/index'
   get 'teas/random'
   get 'teas/get_tea_names'
+  get 'teas/get_vendors'
   post 'account/found_username'
   post 'wishlists/save_suggestion'
   root 'info#index'

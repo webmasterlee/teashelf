@@ -51,7 +51,7 @@ h1,h2,h3,h4,h5,h6 {}
 
 h1{
 	color: #FF904C;
-	font-size: 28px; /* 28px / 16 = 1.75 */
+	font-size: 26px; /* 28px / 16 = 1.75 */
 	text-decoration: none;
 	/*text-shadow: 0 0.5px 1px #aaa;*/
 	line-height: normal;
@@ -110,11 +110,11 @@ h6 {
 	margin-bottom: 10px;
 } 
 
-@media handheld, only screen and (max-width:700px) {
+@media handheld, only screen and (min-width:700px) {
 	.content h2 {font-size: 30px;}
 }
 
-@media handheld, only screen and (max-width:500px) {
+@media handheld, only screen and (min-width:500px) {
 	.content h2 {font-size: 25px;}
 }
 /*LAYOUT*/
@@ -352,10 +352,14 @@ a.selected {
 	text-transform: uppercase;
 }
 
+@media handheld, only screen and (min-width:700px) {
+	h1 {font-size: 28px;}
+}
+
 @media handheld, only screen and (max-width:700px) {
 	.page_title {font-size: 30px;}
 	.header_icon {width: 20px;}
-	h1 {font-size: 26px;}
+	
 	
 	/*.menu_button {display: block;margin-bottom: 20px;}
 	.sidebar {display: block;}
@@ -382,87 +386,77 @@ a.selected {
 /*HOME*/
 
 .splash {
-	background-image:url(image_path('hp_top_l.jpg'));
+	background-image:url(image_path('hp_top_s.jpg'));
+	min-height: 443px;
 	background-position: center top;
 	background-repeat:no-repeat;
 	background-size: cover;
-	min-height: 800px;
 	color: white;
 }
-
-@media handheld, only screen and (max-width: 1000px) {
-	.splash {
-		background-image:url(image_path('hp_top_ml.jpg'));
-		min-height: 652px;
-	}
-}
-@media handheld, only screen and (max-width: 780px) {
+@media handheld, only screen and (min-width: 530px) {
 	.splash {
 		background-image:url(image_path('hp_top_m.jpg'));
 		min-height: 542px;
 	}
 }
-
-@media handheld, only screen and (max-width: 530px) {
+@media handheld, only screen and (min-width: 780px) {
 	.splash {
-		background-image:url(image_path('hp_top_s.jpg'));
-		min-height: 443px;
+		background-image:url(image_path('hp_top_ml.jpg'));
+		min-height: 652px;
+	}
+}
+@media handheld, only screen and (min-width: 1000px) {
+	.splash {
+		background-image:url(image_path('hp_top_l.jpg'));
+		min-height: 800px;
 	}
 }
 
 .splash .header_right a {
 	color: white;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: normal;
     margin: 0 10px;
     text-decoration: none;
-    }
-@media handheld, only screen and (max-width:500px) {
-	.splash .header_right a {font-size: 20px;}
 }
+@media handheld, only screen and (min-width:500px) {
+	.splash .header_right a {font-size:30px;}
+}
+
 .splash h1 {
 	color: white;
-    font-size: 80px;
+    font-size: 25px;
     margin: 0 3% 0 10%;
     text-transform: uppercase;
-    
-    /*text-shadow: 0px 3px 0px #b2a98f,
-             0px 14px 10px rgba(0,0,0,0.15),
-             0px 24px 2px rgba(0,0,0,0.1),
-             0px 34px 30px rgba(0,0,0,0.1);*/
-	/*text-shadow:-3px 3px 0 #000, 0 1px 20px rgba(0, 0, 0, 1), 0 5px 2px rgba(0, 0, 0, 1);   */   
-	text-shadow:0 -5px 2px rgba(0, 0, 0, 0.8);  
-	font-weight: bold;
 }
-
-.splash h1 span {
-	display: block;
-	text-shadow: 0 5px 1px rgba(0, 0, 0, 0.9);
+@media handheld, only screen and (min-width:400px) {
+	.splash h1 span {display: block;}
 }
-
-@media handheld, only screen and (max-width:1250px) {
-	.splash h1 {font-size: 70px;}
+@media handheld, only screen and (min-width:490px) {
+	.splash h1 {font-size: 30px;}
 }
-@media handheld, only screen and (max-width:1100px) {
-	.splash h1 {font-size: 60px;}
+@media handheld, only screen and (min-width:650px) {
+	.splash h1 {
+		font-size: 40px;
+		text-shadow:0 -5px 2px rgba(0, 0, 0, 0.8);
+	}
+	.splash h1 span {
+		text-shadow: 0 5px 1px rgba(0, 0, 0, 0.9);
+	}
 }
-@media handheld, only screen and (max-width:950px) {
+@media handheld, only screen and (min-width:800px) {
 	.splash h1 {font-size: 50px;}
 }
-@media handheld, only screen and (max-width:800px) {
-	.splash h1 {font-size: 40px;}
+@media handheld, only screen and (min-width:950px) {
+	.splash h1 {font-size: 60px;}
 }
-@media handheld, only screen and (max-width:650px) {
-	.splash h1 {font-size: 30px;}
-	.splash h1 {text-shadow:none;}
-	.splash h1 span {text-shadow:none;}
+@media handheld, only screen and (min-width:1100px) {
+	.splash h1 {font-size: 70px;}
 }
-@media handheld, only screen and (max-width:490px) {
-	.splash h1 {font-size: 25px;}
+@media handheld, only screen and (min-width:1250px) {
+	.splash h1 {font-size: 80px;}
 }
-@media handheld, only screen and (max-width:400px) {
-	.splash h1 span {display: inline;}
-}
+
 
 .tea_bullet {
 	float: left;
@@ -472,41 +466,41 @@ a.selected {
     }
 
 .hp_benefit_section {
-	background-image:url(image_path('hp_about_l.jpg'));
+	background-image:url(image_path('hp_about_s.jpg'));
+	min-height:394px;
 	background-position: center top;
 	background-repeat:no-repeat;
 	background-size: cover;
-	min-height: 580px;
 	color: white;
 	overflow: auto;
 	padding: 4%;
 }
-
-@media handheld, only screen and (max-width: 780px) {
+@media handheld, only screen and (min-width: 530px) {
 	.hp_benefit_section {
 		background-image:url(image_path('hp_about_m.jpg'));
 		min-height: 478px;
 	}
 }
-
-@media handheld, only screen and (max-width: 530px) {
+@media handheld, only screen and (min-width: 780px) {
 	.hp_benefit_section {
-		background-image:url(image_path('hp_about_s.jpg'));
-		min-height:394px;
+		background-image:url(image_path('hp_about_l.jpg'));
+		min-height: 580px;
 	}
 }
 .benefit_container {
 	margin:0 auto;
-	max-width: 960px;
-	width: 80%;
+	
 }
 .hp_benefit {font-size: 40px;float: left;width: 93%;}
 .hp_benefit_section h2 {text-transform: uppercase;margin-bottom: 5%;}
 .hp_benefit_item {margin-bottom: 15px;@extend .clearfix;}
 .hp_signup {text-align: center;margin-top: 5%;}
 
-@media handheld, only screen and (max-width:1220px) {
-	.benefit_container {width: 100%;}
+@media handheld, only screen and (min-width:1220px) {
+	.benefit_container {
+		max-width: 960px;
+		width: 80%;
+	}
 }
 @media handheld, only screen and (max-width:870px) {
 	.hp_benefit_section h2, .hp_benefit {font-size: 30px;}

@@ -93,7 +93,7 @@ class TeasController < ApplicationController
   end
 
   def get_vendors
-    @vendors = Tea.all.pluck(:vendor).distinct   
+    @vendors = Tea.all.pluck(:vendor)   
     render json: @vendors
   end
 

@@ -88,10 +88,13 @@ class TeasController < ApplicationController
   end
 
   def get_tea_names
-    #@tea_names = Tea.all.select("name").order("name")
-    #render json: @tea_names
     @tea_names = Tea.all.pluck(:name)    
     render json: @tea_names
+  end
+
+  def get_vendors
+    @vendors = Tea.all.pluck(:vendor).distinct   
+    render json: @vendors
   end
 
   private

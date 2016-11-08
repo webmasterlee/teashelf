@@ -216,6 +216,27 @@ document.addEventListener("turbolinks:load", function() {
 		});
 	}
 
+	if ($(".vendor_typeahead").length) {
+	
+		var vendors = new Bloodhound({
+		  datumTokenizer: Bloodhound.tokenizers.whitespace,
+		  queryTokenizer: Bloodhound.tokenizers.whitespace,
+		  prefetch: '/teas/get_vendors'
+		});
+
+		// passing in `null` for the `options` arguments will result in the default
+		// options being used
+		$('.vendor_typeahead').typeahead({
+			minLength: 3
+		}, 
+		{
+		  name: 'vendors',
+		  source: vendors
+		});
+	}
+
+	
+
 	// the 'right' means error messages will appear to the right
 	// can only be one of these on page
 	$(".required_form_right").validate();	

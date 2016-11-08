@@ -93,7 +93,9 @@ class TeasController < ApplicationController
   end
 
   def get_vendors
-    @vendors = Tea.all.pluck(:vendor)   
+    #need case sensitive distinct
+    @vendors = Tea.select(:vendor).where("vendor is not null").distinct.pluck(:vendor)
+
     render json: @vendors
   end
 

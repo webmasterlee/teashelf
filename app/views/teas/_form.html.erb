@@ -46,7 +46,7 @@
     <div class="tr">
       <div class="td">Stock</div>
       <div class="td top_padding">
-        
+        <%= f.hidden_field :current_stock, value: @tea.stock %>
         <% if @tea.id.nil? %>
           <%= f.radio_button :stock, 'In', :checked => true %>
         <% else %>
@@ -70,7 +70,7 @@
 
     <div class="tr">
       <div class="td">Vendor</div>
-      <div class="td"><%= f.text_field :vendor %></div>
+      <div class="td"><%= f.text_field :vendor, :class => "vendor_typeahead" %></div>
     </div>
 
     <div class="tr">

@@ -45,6 +45,7 @@ class TeasController < ApplicationController
   # POST /teas.json
   def create
     @tea = Tea.new(tea_params)
+    @tea.recent_update = Date.today
 
     respond_to do |format|
       if @tea.save
@@ -60,6 +61,11 @@ class TeasController < ApplicationController
   # PATCH/PUT /teas/1
   # PATCH/PUT /teas/1.json
   def update
+
+    if params[:tea][:current_stock] == "Out" && params[:tea][:stock] == "In"
+      @tea.recent_update = Date.today
+    end
+
     respond_to do |format|
       if @tea.update(tea_params)
         format.html { redirect_to teas_url, notice: 'Tea was successfully updated.' }
@@ -82,10 +88,15 @@ class TeasController < ApplicationController
   end
 
   def get_tea_names
-    #@tea_names = Tea.all.select("name").order("name")
-    #render json: @tea_names
     @tea_names = Tea.all.pluck(:name)    
     render json: @tea_names
+  end
+
+  def get_vendors
+    #need case sensitive distinct
+    @vendors = Tea.select(:vendor).where("vendor is not null").distinct.pluck(:vendor)
+
+    render json: @vendors
   end
 
   private

@@ -24,6 +24,11 @@ new_tea_path %>
       Add your own <%= link_to 'custom attributes', new_att_path %> and assign them to your teas for better organization and filtering.<br/><br/>
     <% else %>
       <b>Show Only</b><br/>
+
+      <span><label>
+        <input type="checkbox" class="js_narrow_by_att" name="att" value="recent_update"> Recently Added
+      </label></span><br/>
+
       <% @atts.each do |att| %>
         <span><label>
           <input type="checkbox" class="js_narrow_by_att" name="att" value="att_<%= att.id %>"> <%= att.name %>
@@ -56,7 +61,9 @@ new_tea_path %>
           data-sort_name="<%= tea.name.split(' ').first %>" 
           data-sort_type="<%= tea.tea_type.name.split(' ').first %>" 
           data-atts='["<%= tea.atts.map { |att| att.id.to_s.prepend("att_") }.join("\",\"") %>",
-                      "tea_type_<%= tea.tea_type.id %>"]'
+                      "tea_type_<%= tea.tea_type.id %>"
+                      <% if tea.recent_update.is_a?(Date) && tea.recent_update.between?(Date.today-30, Date.today) %>,"recent_update"<% end %>
+                    ]'
         <% end %>
         class="list_item<% if archive_section %>_archive<% end %> clearfix <% if tea.stock == "Out" %>out_of_stock<% end %>">
         
